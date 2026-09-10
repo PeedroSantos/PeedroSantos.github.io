@@ -46,11 +46,11 @@
     --ease: cubic-bezier(.22, .61, .36, 1);
     --spring: cubic-bezier(.34, 1.56, .64, 1);
 
-    --glow-green: color-mix(in srgb, var(--green) 15%, transparent);
-    --glow-amber: color-mix(in srgb, var(--amber) 11%, transparent);
-    --blob-green: color-mix(in srgb, var(--green) 32%, transparent);
-    --blob-amber: color-mix(in srgb, var(--amber) 26%, transparent);
-    --blob-teal: color-mix(in srgb, var(--green2) 26%, transparent);
+    --glow-green: color-mix(in srgb, var(--green) 24%, transparent);
+    --glow-amber: color-mix(in srgb, var(--amber) 18%, transparent);
+    --blob-green: color-mix(in srgb, var(--green) 54%, transparent);
+    --blob-amber: color-mix(in srgb, var(--amber) 48%, transparent);
+    --blob-teal: color-mix(in srgb, var(--green2) 46%, transparent);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -89,7 +89,7 @@
   @keyframes ambientDrift { from { transform: translate3d(0,0,0) scale(1); } to { transform: translate3d(0,-2.5%,0) scale(1.07); } }
 
   /* aurora viva atrás do hero */
-  .aurora { position: absolute; inset: -18% -12% -30%; z-index: 0; pointer-events: none; filter: blur(52px); opacity: 0.8; }
+  .aurora { position: absolute; inset: -18% -12% -30%; z-index: 0; pointer-events: none; filter: blur(46px); opacity: 1; }
   .aurora .blob { position: absolute; border-radius: 50%; will-change: transform; }
   .aurora .b1 { width: min(48vw, 440px); aspect-ratio: 1; background: radial-gradient(circle, var(--blob-green), transparent 62%); top: -10%; right: 4%; animation: floatA 24s ease-in-out infinite alternate; }
   .aurora .b2 { width: min(40vw, 350px); aspect-ratio: 1; background: radial-gradient(circle, var(--blob-amber), transparent 62%); top: 14%; right: 32%; animation: floatB 30s ease-in-out infinite alternate; }
@@ -211,16 +211,6 @@
   .stack-grid { display: grid; gap: 1.2rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
   .stack-group .label { font-family: var(--font-mono); font-size: var(--step-xs); text-transform: uppercase; letter-spacing: 0.14em; color: var(--faint); margin: 0 0 0.7rem; }
 
-  /* ============ experience (trilho de nós) ============ */
-  .exp { position: relative; display: grid; gap: 1.6rem; }
-  .exp::before { content: ""; position: absolute; left: 8px; top: 10px; bottom: 10px; width: 2px; background: linear-gradient(var(--line2), transparent); transform: scaleY(0); transform-origin: top; }
-  .exp-item { position: relative; display: grid; grid-template-columns: 18px 1fr; gap: 1rem; align-items: start; }
-  .exp-dot { position: relative; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); }
-  .exp-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.4rem 0.85rem; margin-bottom: 0.45rem; }
-  .exp-top h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.02em; margin: 0; }
-  .exp-kind { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--green); }
-  .exp-body > p { margin: 0 0 0.7rem; font-size: var(--step-s); color: var(--muted); line-height: 1.55; max-width: 60ch; }
-
   /* ============ education ============ */
   .edu-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.4rem 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
   .edu-row:last-child { border-bottom: none; }
@@ -294,14 +284,6 @@
   html.js #projetos .card { opacity: 0; }
   html.js #projetos.in .card { animation: flipUp .7s var(--ease) both; animation-delay: calc(var(--i, 0) * .12s); }
 
-  /* 04 EXPERIÊNCIA — trilho desenha, nós pipocam, corpo desliza */
-  @keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
-  html.js #experiencia.in .exp::before { animation: drawY .9s var(--ease) .1s forwards; }
-  html.js #experiencia .exp-dot { opacity: 0; }
-  html.js #experiencia.in .exp-dot { animation: popNode .55s var(--spring) both; animation-delay: calc(.25s + var(--i, 0) * .22s); }
-  html.js #experiencia .exp-body { opacity: 0; }
-  html.js #experiencia.in .exp-body { animation: slideInL .6s var(--ease) both; animation-delay: calc(.3s + var(--i, 0) * .2s); }
-
   /* 04 STACK — chips ligando */
   html.js #stack .tag { opacity: 0; }
   html.js #stack.in .tag { animation: chipOn .5s var(--spring) both; animation-delay: calc(var(--i, 0) * .05s); }
@@ -335,7 +317,6 @@
       <div class="nav-links">
         <a href="#nocker">Nocker</a>
         <a href="#projetos">Projetos</a>
-        <a href="#experiencia">Experiência</a>
         <a href="#stack">Stack</a>
         <a href="#contato">Contato</a>
       </div>
@@ -458,7 +439,18 @@
           </div>
         </div>
 
-        <a class="card" href="https://github.com/PeedroSantos/face-warrant" target="_blank" rel="noopener" style="--i:1">
+        <div class="card" style="--i:1">
+          <div class="card-head">
+            <h3>Leaf</h3>
+            <span class="card-meta">pessoal</span>
+          </div>
+          <span class="card-kind">Chat em tempo real · IA · full-stack</span>
+          <span class="card-role">Projeto pessoal · <b>ciclo completo:</b> arquitetura, back, front, banco, infra e deploy</span>
+          <p>Plataforma de conversas em tempo real com IA integrada: as pessoas conversam entre si enquanto a IA ajuda a escrever, revisar e melhorar as mensagens.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">MongoDB Atlas</span><span class="tag">Render</span><span class="tag">Vercel</span></div>
+        </div>
+
+        <a class="card" href="https://github.com/PeedroSantos/face-warrant" target="_blank" rel="noopener" style="--i:2">
           <div class="card-head">
             <h3>face-warrant</h3>
             <span class="card-meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 8.9l6.9-.6z"/></svg>2</span>
@@ -470,7 +462,18 @@
           <span class="arrow">ver no GitHub →</span>
         </a>
 
-        <a class="card" href="https://github.com/PeedroSantos/DueDay" target="_blank" rel="noopener" style="--i:2">
+        <div class="card" style="--i:3">
+          <div class="card-head">
+            <h3>NASA Space Apps</h3>
+            <span class="card-meta">hackathon</span>
+          </div>
+          <span class="card-kind">IA · impacto social</span>
+          <span class="card-role">Equipe · <b>hackathon internacional</b></span>
+          <p>App para pessoas com problemas respiratórios: previsão do tempo, alertas personalizados e IA para se preparar para condições climáticas que afetam a saúde.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">Railway</span><span class="tag">IA</span></div>
+        </div>
+
+        <a class="card" href="https://github.com/PeedroSantos/DueDay" target="_blank" rel="noopener" style="--i:4">
           <div class="card-head">
             <h3>DueDay</h3>
             <span class="card-meta">Android</span>
@@ -487,33 +490,9 @@
     </div>
   </section>
 
-  <section id="experiencia" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">04</span><h2>Experiência</h2><span class="sec-line"></span></div>
-      <div class="exp">
-        <div class="exp-item" style="--i:0">
-          <span class="exp-dot"></span>
-          <div class="exp-body">
-            <div class="exp-top"><h3>NASA Space Apps Challenge</h3><span class="exp-kind">Hackathon internacional · equipe</span></div>
-            <p>Com o time, desenvolvi uma aplicação para pessoas com problemas respiratórios: previsão do tempo, alertas personalizados e IA para o usuário se preparar para condições climáticas que afetam a saúde. Foco em impacto social.</p>
-            <div class="tags"><span class="tag">Trabalho em equipe</span><span class="tag">IA</span><span class="tag">Impacto social</span></div>
-          </div>
-        </div>
-        <div class="exp-item" style="--i:1">
-          <span class="exp-dot"></span>
-          <div class="exp-body">
-            <div class="exp-top"><h3>Leaf</h3><span class="exp-kind">Projeto pessoal · full-stack</span></div>
-            <p>Plataforma de conversas em tempo real com IA integrada: as pessoas conversam entre si enquanto a IA ajuda a escrever, revisar e melhorar as mensagens. Toco o ciclo inteiro — arquitetura, backend, frontend, banco, integrações de API, infra em nuvem e deploy.</p>
-            <div class="tags"><span class="tag">Tempo real</span><span class="tag">IA</span><span class="tag">Full-stack</span><span class="tag">Cloud</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
   <section id="stack" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">05</span><h2>Stack</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">04</span><h2>Stack</h2><span class="sec-line"></span></div>
       <div class="stack-grid">
         <div class="stack-group">
           <p class="label">Linguagens</p>
@@ -541,7 +520,7 @@
 
   <section id="formacao" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">06</span><h2>Formação</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">05</span><h2>Formação</h2><span class="sec-line"></span></div>
       <div class="edu">
         <div class="edu-row">
           <div>
@@ -563,7 +542,7 @@
 
   <section id="contato" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">07</span><h2>Contato</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">06</span><h2>Contato</h2><span class="sec-line"></span></div>
       <p class="foot-cta">Vamos construir algo bom juntos?</p>
       <div class="contact-grid">
         <a class="contact-card" href="https://wa.me/5534998365726" target="_blank" rel="noopener" style="--i:0">
