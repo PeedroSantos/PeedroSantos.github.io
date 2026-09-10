@@ -46,11 +46,11 @@
     --ease: cubic-bezier(.22, .61, .36, 1);
     --spring: cubic-bezier(.34, 1.56, .64, 1);
 
-    --glow-green: color-mix(in srgb, var(--green) 24%, transparent);
-    --glow-amber: color-mix(in srgb, var(--amber) 18%, transparent);
-    --blob-green: color-mix(in srgb, var(--green) 54%, transparent);
-    --blob-amber: color-mix(in srgb, var(--amber) 48%, transparent);
-    --blob-teal: color-mix(in srgb, var(--green2) 46%, transparent);
+    --glow-green: color-mix(in srgb, var(--green) 36%, transparent);
+    --glow-amber: color-mix(in srgb, var(--amber) 30%, transparent);
+    --blob-green: color-mix(in srgb, var(--green) 74%, transparent);
+    --blob-amber: color-mix(in srgb, var(--amber) 66%, transparent);
+    --blob-teal: color-mix(in srgb, var(--green2) 62%, transparent);
   }
 
   @media (prefers-color-scheme: dark) {
@@ -60,6 +60,11 @@
       --green: #5fce97; --green2: #3fae77; --green-soft: rgba(95, 206, 151, 0.12);
       --amber: #e6b15c; --amber-soft: rgba(230, 177, 92, 0.14);
       --shadow: 0 1px 2px rgba(0, 0, 0, 0.32), 0 20px 44px -24px rgba(0, 0, 0, 0.72);
+      --glow-green: color-mix(in srgb, var(--green) 24%, transparent);
+      --glow-amber: color-mix(in srgb, var(--amber) 18%, transparent);
+      --blob-green: color-mix(in srgb, var(--green) 54%, transparent);
+      --blob-amber: color-mix(in srgb, var(--amber) 48%, transparent);
+      --blob-teal: color-mix(in srgb, var(--green2) 46%, transparent);
     }
   }
   :root[data-theme="dark"] {
