@@ -1,0 +1,575 @@
+<title>Pedro Evangelista Santos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<style>
+  :root {
+    --bg: #f4f7f5;
+    --surface: #ffffff;
+    --surface-2: #eef3f0;
+    --border: #d9e2dc;
+    --border-strong: #c4d1ca;
+    --ink: #12201a;
+    --muted: #55685e;
+    --faint: #7e9187;
+    --accent: #15794f;
+    --accent-2: #0f5f3d;
+    --accent-soft: rgba(21, 121, 79, 0.10);
+    --amber: #a4620f;
+    --ring: rgba(21, 121, 79, 0.42);
+    --shadow: 0 1px 2px rgba(16, 32, 26, 0.04), 0 12px 30px -18px rgba(16, 32, 26, 0.25);
+
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+
+    --step-xs: 0.78rem;
+    --step-s: 0.9rem;
+    --step-0: 1rem;
+    --step-1: 1.18rem;
+    --step-2: 1.5rem;
+    --step-3: 2rem;
+    --step-4: clamp(2.6rem, 7vw, 4.6rem);
+
+    --maxw: 960px;
+    --pad: clamp(1.1rem, 4vw, 2rem);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0d1512;
+      --surface: #131d19;
+      --surface-2: #18241f;
+      --border: #253730;
+      --border-strong: #32453d;
+      --ink: #e9efea;
+      --muted: #95aaa0;
+      --faint: #6f867c;
+      --accent: #57c08a;
+      --accent-2: #3fae77;
+      --accent-soft: rgba(87, 192, 138, 0.12);
+      --amber: #e0a458;
+      --ring: rgba(87, 192, 138, 0.5);
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 38px -20px rgba(0, 0, 0, 0.7);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #0d1512;
+    --surface: #131d19;
+    --surface-2: #18241f;
+    --border: #253730;
+    --border-strong: #32453d;
+    --ink: #e9efea;
+    --muted: #95aaa0;
+    --faint: #6f867c;
+    --accent: #57c08a;
+    --accent-2: #3fae77;
+    --accent-soft: rgba(87, 192, 138, 0.12);
+    --amber: #e0a458;
+    --ring: rgba(87, 192, 138, 0.5);
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 16px 38px -20px rgba(0, 0, 0, 0.7);
+  }
+
+  * { box-sizing: border-box; }
+
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--font-body);
+    font-size: var(--step-0);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  a { color: inherit; }
+
+  ::selection { background: var(--accent-soft); }
+
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+    border-radius: 3px;
+  }
+
+  .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
+
+  /* ---------- top bar ---------- */
+  .topbar {
+    position: sticky; top: 0; z-index: 20;
+    background: color-mix(in srgb, var(--bg) 86%, transparent);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .topbar-inner {
+    display: flex; align-items: center; justify-content: space-between;
+    gap: 1rem; height: 58px;
+  }
+  .brand {
+    font-family: var(--font-mono);
+    font-size: var(--step-s);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    text-decoration: none;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+  }
+  .brand .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--accent); display: inline-block; }
+  .nav { display: flex; align-items: center; gap: 1.35rem; }
+  .nav a {
+    font-size: var(--step-s); color: var(--muted); text-decoration: none;
+    transition: color 0.15s;
+  }
+  .nav a:hover { color: var(--ink); }
+  .nav-links { display: flex; gap: 1.35rem; }
+  @media (max-width: 620px) { .nav-links { display: none; } }
+  .theme-toggle {
+    display: inline-grid; place-items: center;
+    width: 34px; height: 34px;
+    border: 1px solid var(--border); border-radius: 9px;
+    background: var(--surface); color: var(--muted);
+    cursor: pointer; transition: color 0.15s, border-color 0.15s;
+  }
+  .theme-toggle:hover { color: var(--ink); border-color: var(--border-strong); }
+  .theme-toggle svg { width: 17px; height: 17px; }
+
+  /* ---------- hero ---------- */
+  .hero { position: relative; padding: clamp(3rem, 9vw, 6rem) 0 clamp(2.4rem, 6vw, 4rem); overflow: hidden; }
+  .hero-orbits { position: absolute; inset: 0; pointer-events: none; z-index: 0; opacity: 0.5; }
+  .hero-inner { position: relative; z-index: 1; }
+  .eyebrow {
+    font-family: var(--font-mono); font-size: var(--step-xs);
+    text-transform: uppercase; letter-spacing: 0.18em; color: var(--accent);
+    margin: 0 0 1.1rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-weight: 800;
+    font-size: var(--step-4);
+    line-height: 0.98;
+    letter-spacing: -0.035em;
+    text-wrap: balance;
+    margin: 0 0 1.2rem;
+  }
+  .role {
+    font-family: var(--font-mono); font-size: var(--step-s);
+    color: var(--muted); margin: 0 0 1.4rem; letter-spacing: -0.01em;
+  }
+  .role b { color: var(--ink); font-weight: 500; }
+  .pitch {
+    font-size: var(--step-1); color: var(--ink); max-width: 34ch;
+    margin: 0 0 1.8rem; line-height: 1.5;
+  }
+  .pitch em { color: var(--accent); font-style: normal; }
+
+  .meta { display: flex; flex-wrap: wrap; gap: 0.5rem 0.6rem; margin: 0 0 1.9rem; }
+  .chip {
+    font-family: var(--font-mono); font-size: var(--step-xs);
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    padding: 0.32rem 0.62rem; border-radius: 999px;
+    border: 1px solid var(--border); background: var(--surface-2); color: var(--muted);
+  }
+  .chip svg { width: 13px; height: 13px; color: var(--accent); }
+
+  .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
+  .btn {
+    font-family: var(--font-body); font-size: var(--step-s); font-weight: 500;
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.62rem 1.05rem; border-radius: 10px;
+    text-decoration: none; cursor: pointer;
+    border: 1px solid transparent; transition: transform 0.12s, background 0.15s, border-color 0.15s;
+  }
+  .btn svg { width: 16px; height: 16px; }
+  .btn-primary { background: var(--accent); color: #fff; }
+  :root[data-theme="dark"] .btn-primary { color: #06140d; }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-primary { color: #06140d; } }
+  .btn-primary:hover { background: var(--accent-2); transform: translateY(-1px); }
+  .btn-ghost { background: var(--surface); border-color: var(--border); color: var(--ink); }
+  .btn-ghost:hover { border-color: var(--border-strong); transform: translateY(-1px); }
+
+  /* ---------- sections ---------- */
+  section { padding: clamp(2.6rem, 6vw, 4.2rem) 0; border-top: 1px solid var(--border); }
+  .sec-head { display: flex; align-items: baseline; gap: 0.8rem; margin: 0 0 1.8rem; }
+  .sec-num { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); }
+  h2 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--step-3); letter-spacing: -0.025em; margin: 0;
+    text-wrap: balance;
+  }
+  .prose p { max-width: 62ch; color: var(--ink); margin: 0 0 1rem; }
+  .prose p:last-child { margin-bottom: 0; }
+  .prose strong { font-weight: 600; }
+  .prose .lead { color: var(--muted); }
+
+  /* ---------- featured project: Nocker ---------- */
+  .feature {
+    border: 1px solid var(--border); border-radius: 16px;
+    background: var(--surface); box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+  .feature-top {
+    padding: clamp(1.3rem, 3.5vw, 2rem);
+    background:
+      radial-gradient(120% 140% at 100% 0%, var(--accent-soft), transparent 60%);
+    border-bottom: 1px solid var(--border);
+  }
+  .feature-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; }
+  .badge {
+    font-family: var(--font-mono); font-size: var(--step-xs);
+    padding: 0.24rem 0.55rem; border-radius: 6px;
+    border: 1px solid var(--border-strong); color: var(--muted);
+  }
+  .badge.live { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--border)); }
+  .badge.priv { color: var(--amber); border-color: color-mix(in srgb, var(--amber) 40%, var(--border)); }
+  .feature h3 {
+    font-family: var(--font-display); font-weight: 700;
+    font-size: var(--step-2); letter-spacing: -0.02em; margin: 0 0 0.5rem;
+  }
+  .feature-top p { margin: 0; color: var(--ink); max-width: 58ch; }
+  .feature-body { padding: clamp(1.3rem, 3.5vw, 2rem); display: grid; gap: 1.6rem; }
+  @media (min-width: 720px) { .feature-body { grid-template-columns: 1.2fr 1fr; } }
+  .hlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; }
+  .hlist li { position: relative; padding-left: 1.5rem; color: var(--ink); font-size: var(--step-s); line-height: 1.5; }
+  .hlist li::before {
+    content: ""; position: absolute; left: 0; top: 0.52em;
+    width: 7px; height: 7px; border-radius: 2px; background: var(--accent);
+  }
+  .sidenote .label {
+    font-family: var(--font-mono); font-size: var(--step-xs);
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--faint);
+    margin: 0 0 0.7rem;
+  }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
+  .tag {
+    font-family: var(--font-mono); font-size: var(--step-xs);
+    padding: 0.26rem 0.55rem; border-radius: 6px;
+    background: var(--surface-2); border: 1px solid var(--border); color: var(--muted);
+  }
+
+  /* ---------- project grid ---------- */
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+  .card {
+    display: flex; flex-direction: column; gap: 0.75rem;
+    border: 1px solid var(--border); border-radius: 13px;
+    background: var(--surface); padding: 1.25rem;
+    text-decoration: none; color: inherit;
+    transition: transform 0.14s, border-color 0.14s, box-shadow 0.14s;
+  }
+  .card:hover { transform: translateY(-3px); border-color: var(--border-strong); box-shadow: var(--shadow); }
+  .card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
+  .card-head h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.02em; margin: 0; }
+  .card-meta { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); display: inline-flex; align-items: center; gap: 0.3rem; }
+  .card-meta svg { width: 12px; height: 12px; }
+  .card-kind { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--accent); }
+  .card-role { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); line-height: 1.4; }
+  .card-role b { color: var(--muted); font-weight: 500; }
+  .card p { margin: 0; font-size: var(--step-s); color: var(--muted); line-height: 1.5; flex: 1; }
+  .card .tags { margin-top: auto; }
+  .card .arrow { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--muted); display: inline-flex; align-items: center; gap: 0.35rem; transition: gap 0.14s, color 0.14s; }
+  .card:hover .arrow { gap: 0.6rem; color: var(--accent); }
+
+  .also { margin-top: 1.2rem; font-size: var(--step-s); color: var(--muted); }
+  .also a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--accent-soft); }
+  .also a:hover { border-bottom-color: var(--accent); }
+
+  /* ---------- stack ---------- */
+  .stack-grid { display: grid; gap: 1.1rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
+  .stack-group .label {
+    font-family: var(--font-mono); font-size: var(--step-xs);
+    text-transform: uppercase; letter-spacing: 0.14em; color: var(--faint);
+    margin: 0 0 0.7rem;
+  }
+
+  /* ---------- education ---------- */
+  .edu { display: grid; gap: 1rem; }
+  .edu-row {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between;
+    gap: 0.4rem 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border);
+  }
+  .edu-row:last-child { border-bottom: none; }
+  .edu-row .t { font-weight: 600; font-size: var(--step-1); }
+  .edu-row .s { color: var(--muted); font-size: var(--step-s); }
+  .edu-row .when { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--accent); white-space: nowrap; }
+
+  /* ---------- footer ---------- */
+  footer { border-top: 1px solid var(--border); padding: clamp(2.6rem, 6vw, 3.6rem) 0 3rem; }
+  .foot-cta { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.02em; margin: 0 0 1.2rem; text-wrap: balance; }
+  .foot-links { display: flex; flex-wrap: wrap; gap: 0.7rem; margin-bottom: 1.6rem; }
+  .foot-note { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { transition: none !important; animation: none !important; }
+  }
+</style>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>Pedro E. Santos</a>
+    <nav class="nav" aria-label="Seções">
+      <div class="nav-links">
+        <a href="#nocker">Nocker</a>
+        <a href="#projetos">Projetos</a>
+        <a href="#stack">Stack</a>
+        <a href="#contato">Contato</a>
+      </div>
+      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar tema claro/escuro" title="Alternar tema">
+        <svg class="i-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        <svg class="i-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" hidden><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></svg>
+      </button>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" style="border-top: none;">
+    <svg class="hero-orbits" viewBox="0 0 960 520" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+      <g fill="none" stroke="var(--accent)" stroke-width="1" opacity="0.3">
+        <ellipse cx="780" cy="150" rx="120" ry="120"/>
+        <ellipse cx="780" cy="150" rx="200" ry="200"/>
+        <ellipse cx="780" cy="150" rx="290" ry="290"/>
+      </g>
+      <circle cx="900" cy="150" r="4" fill="var(--accent)"/>
+      <circle cx="592" cy="190" r="3" fill="var(--amber)"/>
+      <circle cx="780" cy="150" r="6" fill="var(--accent)" opacity="0.5"/>
+    </svg>
+    <div class="wrap hero-inner">
+      <p class="eyebrow">Desenvolvedor de software · Uberlândia/MG</p>
+      <h1>Pedro Evangelista Santos</h1>
+      <p class="role"><b>Full-stack</b> · <b>Mobile</b> · <b>IA aplicada</b> — do app ao backend ao modelo que roda atrás.</p>
+      <p class="pitch">Construo produtos de ponta a ponta e aprendo <em>shippando</em> — código que sai do editor e vira app na mão de alguém.</p>
+      <div class="meta">
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Uberlândia/MG</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>Formatura dez/2027</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>30h/semana · seg–sex</span>
+        <span class="chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/><circle cx="12" cy="12" r="9"/></svg>Híbrido ou remoto</span>
+      </div>
+      <div class="actions">
+        <a class="btn btn-primary" href="mailto:pedro.evang.santos@gmail.com">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+          Falar comigo
+        </a>
+        <a class="btn btn-ghost" href="https://github.com/PeedroSantos" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.39-3.5-1.39-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.44 1.13 3.03.86.09-.67.36-1.13.66-1.39-2.31-.26-4.74-1.16-4.74-5.14 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.32.1-2.75 0 0 .87-.28 2.85 1.07a9.9 9.9 0 0 1 5.19 0c1.98-1.35 2.85-1.07 2.85-1.07.56 1.43.21 2.49.1 2.75.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.87-4.75 5.13.37.32.7.95.7 1.92v2.85c0 .28.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
+          GitHub
+        </a>
+        <a class="btn btn-ghost" href="https://www.linkedin.com/in/pedroevangelistasantos" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.3h4.56V24H.2zM8.3 8.3h4.37v2.14h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.93h-4.56v-7.92c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.18V24H8.3z"/></svg>
+          LinkedIn
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">01</span><h2>Sobre</h2></div>
+      <div class="prose">
+        <p>Sou estudante de <strong>Sistemas de Informação na Uniube</strong> e passo o tempo livre construindo produtos de verdade. Gosto da parte difícil: o app que precisa ser rápido, o backend que não pode cair, a IA que tem que rodar sem expor chave nenhuma no cliente.</p>
+        <p class="lead">Trabalho com autonomia — pego um problema, escolho o stack, shippo e corrijo rápido quando erro. Uso IA no dia a dia como ferramenta de construção, não de enfeite. O Nocker fiz sozinho; já os projetos de faculdade foram em equipe, e é onde mais gosto de estar: co-criando, dividindo o problema e destravando junto com o time. É o tipo de curiosidade que me fez ir de reconhecimento facial a app de finanças sem pedir licença.</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="nocker">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">02</span><h2>Projeto em destaque</h2></div>
+      <article class="feature">
+        <div class="feature-top">
+          <div class="feature-badges">
+            <span class="badge live">● Em produção</span>
+            <span class="badge priv">Código privado</span>
+            <span class="badge">Projeto pessoal · solo</span>
+          </div>
+          <h3>Nocker — super-app de finanças pessoais</h3>
+          <p>Um app de finanças que construí sozinho, de ponta a ponta: app mobile, API própria, banco, autenticação, IA e o processo de publicação. É o projeto onde juntei tudo que sei e aprendi o que faltava.</p>
+        </div>
+        <div class="feature-body">
+          <div>
+            <ul class="hlist">
+              <li><strong>Full-stack sozinho:</strong> app em React Native + Expo, API em FastAPI e banco no Supabase (Postgres).</li>
+              <li><strong>IA pelo backend</strong> (SDK oficial da Anthropic) para organização financeira — a chave nunca chega ao celular do usuário.</li>
+              <li><strong>Open Finance via Pluggy</strong> e captura automática de PIX com módulo nativo Android em Kotlin.</li>
+              <li><strong>Autenticação própria</strong> em JWT + login Google; deploy em Docker no Render; builds mobile com EAS.</li>
+              <li><strong>Design system com dois temas</strong> de igual peso, claro e escuro, conferidos por contraste (WCAG).</li>
+              <li><strong>Hardening de segurança</strong> e o caminho completo até a publicação na Play Store.</li>
+            </ul>
+          </div>
+          <aside class="sidenote">
+            <p class="label">Stack</p>
+            <div class="tags">
+              <span class="tag">React Native</span>
+              <span class="tag">Expo</span>
+              <span class="tag">TypeScript</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">Python</span>
+              <span class="tag">Supabase / Postgres</span>
+              <span class="tag">Anthropic SDK</span>
+              <span class="tag">Pluggy</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">JWT + OAuth</span>
+              <span class="tag">Docker</span>
+              <span class="tag">Render</span>
+              <span class="tag">EAS</span>
+            </div>
+            <p class="label" style="margin-top:1.3rem;">Demonstração</p>
+            <p style="margin:0; font-size:var(--step-s); color:var(--muted); line-height:1.5;">Repositório privado. Posso mostrar o app e o código numa conversa ou code review.</p>
+          </aside>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <section id="projetos">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">03</span><h2>Outros projetos</h2></div>
+      <div class="grid">
+
+        <a class="card" href="https://github.com/PeedroSantos/face-warrant" target="_blank" rel="noopener">
+          <div class="card-head">
+            <h3>face-warrant</h3>
+            <span class="card-meta"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 8.9l6.9-.6z"/></svg>2</span>
+          </div>
+          <span class="card-kind">Visão computacional · backend</span>
+          <span class="card-role">Projeto em equipe · <b>sua parte:</b> função "Procurado", integração e testes de front-end</span>
+          <p>Reconhecimento facial educacional: detecta e identifica rostos em imagem, vídeo e webcam, com cadastro de pessoas e alerta de correspondência. Feito para ensinar os conceitos — não para uso real.</p>
+          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">YOLO</span><span class="tag">DeepFace</span></div>
+          <span class="arrow">ver no GitHub →</span>
+        </a>
+
+        <a class="card" href="https://github.com/PeedroSantos/Nexus-Explorer" target="_blank" rel="noopener">
+          <div class="card-head">
+            <h3>Nexus&#8209;Explorer</h3>
+            <span class="card-meta">SPA</span>
+          </div>
+          <span class="card-kind">Frontend</span>
+          <span class="card-role">Equipe de 3 · <b>sua parte:</b> catálogo, busca/filtros e páginas de planeta</span>
+          <p>SPA de exploração espacial: catálogo de planetas com busca, páginas dinâmicas, acompanhamento de missões e um mapa orbital interativo. Projeto final de Programação para Internet na Uniube.</p>
+          <div class="tags"><span class="tag">React 19</span><span class="tag">Vite 6</span><span class="tag">React Router 7</span><span class="tag">CSS Modules</span></div>
+          <span class="arrow">ver no GitHub →</span>
+        </a>
+
+        <a class="card" href="https://github.com/PeedroSantos/DueDay" target="_blank" rel="noopener">
+          <div class="card-head">
+            <h3>DueDay</h3>
+            <span class="card-meta">Android</span>
+          </div>
+          <span class="card-kind">Mobile nativo</span>
+          <span class="card-role">Projeto em equipe · <b>sua parte:</b> build, correções de UI e entrega</span>
+          <p>App Android para gerenciar contas e documentos com vencimento: CRUD completo, histórico de pagamento automático e notificações locais para prazos. Persistência local, sem backend.</p>
+          <div class="tags"><span class="tag">Java 11</span><span class="tag">SQLite</span><span class="tag">MVC</span><span class="tag">Gradle</span></div>
+          <span class="arrow">ver no GitHub →</span>
+        </a>
+
+      </div>
+      <p class="also">Também: <a href="https://github.com/PeedroSantos/java-padroes-de-projeto-na-pratica" target="_blank" rel="noopener">padrões de projeto em Java</a> (desafio DIO) e contribuição em <a href="https://github.com/PeedroSantos/dio-lab-open-source" target="_blank" rel="noopener">open source pela Digital Innovation One</a>.</p>
+    </div>
+  </section>
+
+  <section id="stack">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">04</span><h2>Stack &amp; ferramentas</h2></div>
+      <div class="stack-grid">
+        <div class="stack-group">
+          <p class="label">Linguagens</p>
+          <div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">SQL</span></div>
+        </div>
+        <div class="stack-group">
+          <p class="label">Frontend &amp; Mobile</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Vite</span><span class="tag">Android / Java</span></div>
+        </div>
+        <div class="stack-group">
+          <p class="label">Backend</p>
+          <div class="tags"><span class="tag">FastAPI</span><span class="tag">APIs REST</span><span class="tag">JWT / OAuth</span><span class="tag">Node</span></div>
+        </div>
+        <div class="stack-group">
+          <p class="label">Dados &amp; IA</p>
+          <div class="tags"><span class="tag">Supabase / Postgres</span><span class="tag">SQLite</span><span class="tag">Anthropic SDK</span><span class="tag">YOLO</span><span class="tag">DeepFace</span></div>
+        </div>
+        <div class="stack-group">
+          <p class="label">DevOps &amp; ferramentas</p>
+          <div class="tags"><span class="tag">Docker</span><span class="tag">Render</span><span class="tag">EAS</span><span class="tag">Git / GitHub</span><span class="tag">Gradle</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="formacao">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-num">05</span><h2>Formação</h2></div>
+      <div class="edu">
+        <div class="edu-row">
+          <div>
+            <div class="t">Sistemas de Informação — Bacharelado</div>
+            <div class="s">Universidade de Uberaba (Uniube)</div>
+          </div>
+          <div class="when">conclusão prevista · dez/2027</div>
+        </div>
+        <div class="edu-row">
+          <div>
+            <div class="t">Bootcamps &amp; Labs</div>
+            <div class="s">Digital Innovation One — Java, padrões de projeto e open source</div>
+          </div>
+          <div class="when">contínuo</div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer id="contato">
+  <div class="wrap">
+    <p class="foot-cta">Tenho fome de construir. Bora conversar?</p>
+    <div class="foot-links">
+      <a class="btn btn-primary" href="mailto:pedro.evang.santos@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg>
+        pedro.evang.santos@gmail.com
+      </a>
+      <a class="btn btn-ghost" href="https://github.com/PeedroSantos" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.39-3.5-1.39-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.44 1.13 3.03.86.09-.67.36-1.13.66-1.39-2.31-.26-4.74-1.16-4.74-5.14 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.32.1-2.75 0 0 .87-.28 2.85 1.07a9.9 9.9 0 0 1 5.19 0c1.98-1.35 2.85-1.07 2.85-1.07.56 1.43.21 2.49.1 2.75.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.87-4.75 5.13.37.32.7.95.7 1.92v2.85c0 .28.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
+        github.com/PeedroSantos
+      </a>
+      <a class="btn btn-ghost" href="https://www.linkedin.com/in/pedroevangelistasantos" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.3h4.56V24H.2zM8.3 8.3h4.37v2.14h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.93h-4.56v-7.92c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.18V24H8.3z"/></svg>
+        in/pedroevangelistasantos
+      </a>
+    </div>
+    <p class="foot-note">Disponível para estágio · 30h/semana · Uberlândia/MG · híbrido ou remoto</p>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var root = document.documentElement;
+    var btn = document.getElementById("themeToggle");
+    var sun = btn.querySelector(".i-sun");
+    var moon = btn.querySelector(".i-moon");
+
+    function resolved() {
+      var t = root.getAttribute("data-theme");
+      if (t === "dark" || t === "light") return t;
+      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    }
+    function paintIcon() {
+      var dark = resolved() === "dark";
+      sun.hidden = dark;
+      moon.hidden = !dark;
+    }
+    try {
+      var saved = localStorage.getItem("pes-theme");
+      if (saved === "dark" || saved === "light") root.setAttribute("data-theme", saved);
+    } catch (e) {}
+    paintIcon();
+
+    btn.addEventListener("click", function () {
+      var next = resolved() === "dark" ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("pes-theme", next); } catch (e) {}
+      paintIcon();
+    });
+
+    window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function () {
+      if (!root.getAttribute("data-theme")) paintIcon();
+    });
+  })();
+</script>
