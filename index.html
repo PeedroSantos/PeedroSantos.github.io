@@ -154,9 +154,15 @@
   .btn-primary { background: var(--green); color: #fff; }
   :root[data-theme="dark"] .btn-primary { color: #06140d; }
   @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .btn-primary { color: #06140d; } }
-  .btn-primary:hover { background: var(--green2); transform: translateY(-2px); box-shadow: 0 10px 22px -12px var(--green); }
+  .btn-primary:hover { background: var(--green2); transform: translateY(-2px) scale(1.03); box-shadow: 0 10px 22px -12px var(--green); }
   .btn-ghost { background: var(--surface); border-color: var(--line); color: var(--ink); }
-  .btn-ghost:hover { border-color: var(--line2); transform: translateY(-2px); }
+  .btn-ghost:hover { border-color: var(--line2); transform: translateY(-2px) scale(1.02); }
+  /* gestos: cresce no hover, afunda no toque */
+  .btn:active { transform: scale(.95); }
+  a.card:active, .contact-card:active { transform: scale(.985); }
+  .theme-switch:active { transform: scale(.93); }
+  .contact-ico { transition: transform 0.25s var(--spring); }
+  .contact-card:hover .contact-ico { transform: scale(1.1) rotate(-5deg); }
 
   /* ============ sections ============ */
   section { padding: clamp(2.8rem, 6vw, 4.4rem) 0; border-top: 1px solid var(--line); }
@@ -215,6 +221,17 @@
   /* ============ stack ============ */
   .stack-grid { display: grid; gap: 1.2rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
   .stack-group .label { font-family: var(--font-mono); font-size: var(--step-xs); text-transform: uppercase; letter-spacing: 0.14em; color: var(--faint); margin: 0 0 0.7rem; }
+
+  /* ============ experience (trilho de nós) ============ */
+  .exp { position: relative; display: grid; gap: 1.8rem; }
+  .exp::before { content: ""; position: absolute; left: 8px; top: 12px; bottom: 12px; width: 2px; background: linear-gradient(var(--line2), transparent); transform: scaleY(0); transform-origin: top; }
+  .exp-item { position: relative; display: grid; grid-template-columns: 18px 1fr; gap: 1rem; align-items: start; }
+  .exp-dot { position: relative; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--green); box-shadow: 0 0 0 4px var(--green-soft); }
+  .exp-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; }
+  .exp-top h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.02em; margin: 0; }
+  .exp-role { font-size: var(--step-s); color: var(--green); font-weight: 500; }
+  .exp-period { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); margin: 0.2rem 0 0.55rem; }
+  .exp-body > p { margin: 0 0 0.6rem; font-size: var(--step-s); color: var(--muted); line-height: 1.55; max-width: 62ch; }
 
   /* ============ education ============ */
   .edu-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.4rem 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
@@ -289,6 +306,14 @@
   html.js #projetos .card { opacity: 0; }
   html.js #projetos.in .card { animation: flipUp .7s var(--ease) both; animation-delay: calc(var(--i, 0) * .12s); }
 
+  /* 04 EXPERIÊNCIA — trilho desenha, nós pipocam, corpo desliza */
+  @keyframes drawY { from { transform: scaleY(0); } to { transform: scaleY(1); } }
+  html.js #experiencia.in .exp::before { animation: drawY .9s var(--ease) .1s forwards; }
+  html.js #experiencia .exp-dot { opacity: 0; }
+  html.js #experiencia.in .exp-dot { animation: popNode .55s var(--spring) both; animation-delay: calc(.25s + var(--i, 0) * .22s); }
+  html.js #experiencia .exp-body { opacity: 0; }
+  html.js #experiencia.in .exp-body { animation: slideInL .6s var(--ease) both; animation-delay: calc(.3s + var(--i, 0) * .2s); }
+
   /* 04 STACK — chips ligando */
   html.js #stack .tag { opacity: 0; }
   html.js #stack.in .tag { animation: chipOn .5s var(--spring) both; animation-delay: calc(var(--i, 0) * .05s); }
@@ -322,6 +347,7 @@
       <div class="nav-links">
         <a href="#nocker">Nocker</a>
         <a href="#projetos">Projetos</a>
+        <a href="#experiencia">Experiência</a>
         <a href="#stack">Stack</a>
         <a href="#contato">Contato</a>
       </div>
@@ -350,8 +376,8 @@
     <div class="wrap hero-inner">
       <p class="h eyebrow">Desenvolvedor de software · Uberlândia/MG</p>
       <h1><span class="line">Pedro Evangelista</span><span class="line">Santos</span></h1>
-      <p class="h role"><b>Full-stack</b> · <b>Mobile</b> · <b>IA aplicada</b> — do app ao backend ao modelo que roda atrás.</p>
-      <p class="h pitch">Construo produtos de ponta a ponta e aprendo <em>shippando</em> — código que sai do editor e vira app na mão de alguém.</p>
+      <p class="h role"><b>Full-stack</b> · <b>Mobile</b> · <b>IA aplicada</b>. Do app ao backend ao modelo que roda atrás.</p>
+      <p class="h pitch">Construo software de verdade e aprendo <em>fazendo</em>. Código que sai do editor e vira app na mão de alguém.</p>
       <div class="meta">
         <span class="chip" style="--i:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>Uberlândia/MG</span>
         <span class="chip" style="--i:1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="m9 12 2 2 4-4"/></svg>Aberto a oportunidades</span>
@@ -379,7 +405,7 @@
       <div class="sec-head"><span class="sec-index">01</span><h2>Sobre</h2><span class="sec-line"></span></div>
       <div class="prose">
         <p>Sou estudante de <strong>Sistemas de Informação</strong> e passo o tempo livre construindo produtos de verdade. Gosto da parte difícil: o app que precisa ser rápido, o backend que não pode cair, a IA que tem que rodar sem expor chave nenhuma no cliente.</p>
-        <p class="lead">Trabalho com autonomia — pego um problema, escolho o stack, shippo e corrijo rápido quando erro. Uso IA no dia a dia como ferramenta de construção, não de enfeite. No Nocker eu puxo a direção do produto e a arquitetura e desenvolvo junto com o time; nos projetos de faculdade a lógica é a mesma — co-criar, dividir o problema e destravar junto. É o tipo de curiosidade que me levou de reconhecimento facial a app de finanças sem pedir licença.</p>
+        <p class="lead">Gosto de tocar as coisas com autonomia: pego um problema, escolho o stack e vou ajustando conforme erro. Uso IA no dia a dia pra construir, não pra enfeitar. No Nocker eu puxo a direção do produto e a arquitetura junto com o time, e nos projetos de faculdade a ideia é a mesma: dividir o problema e resolver junto. Foi essa curiosidade que me levou de reconhecimento facial a app de finanças sem pedir licença.</p>
       </div>
     </div>
   </section>
@@ -394,14 +420,14 @@
             <span class="badge priv">Código privado</span>
             <span class="badge">Liderança técnica · com time</span>
           </div>
-          <h3>Nocker — super-app de finanças pessoais</h3>
-          <p>Um app de finanças que eu lidero: puxo a direção de produto e a arquitetura e desenvolvo boa parte junto com o time do Nocker. É onde juntei o que sei — mobile, backend, dados, IA e o caminho até a loja.</p>
+          <h3>Nocker, super-app de finanças pessoais</h3>
+          <p>Um app de finanças que eu lidero: puxo a direção de produto e a arquitetura e desenvolvo boa parte junto com o time do Nocker. É onde juntei o que sei: mobile, backend, dados, IA e o caminho até a loja.</p>
         </div>
         <div class="feature-body">
           <div>
             <ul class="hlist">
               <li style="--i:0"><strong>Arquitetura full-stack:</strong> app em React Native + Expo, API em FastAPI e banco no Supabase (Postgres).</li>
-              <li style="--i:1"><strong>IA pelo backend</strong> (SDK oficial da Anthropic) para organização financeira — a chave nunca chega ao celular do usuário.</li>
+              <li style="--i:1"><strong>IA pelo backend</strong> (SDK oficial da Anthropic) para organização financeira. A chave nunca chega ao celular do usuário.</li>
               <li style="--i:2"><strong>Open Finance via Pluggy</strong> e captura automática de PIX com módulo nativo Android em Kotlin.</li>
               <li style="--i:3"><strong>Autenticação própria</strong> em JWT + login Google; deploy em Docker no Render; builds mobile com EAS.</li>
               <li style="--i:4"><strong>Design system com dois temas</strong> de igual peso, claro e escuro, conferidos por contraste (WCAG).</li>
@@ -417,7 +443,7 @@
               <span class="tag">JWT + OAuth</span><span class="tag">Docker</span><span class="tag">Render</span><span class="tag">EAS</span>
             </div>
             <p class="label" style="margin-top:1.3rem;">Meu papel</p>
-            <p style="margin:0; font-size:var(--step-s); color:var(--muted); line-height:1.5;">Direção de produto, arquitetura e desenvolvimento, coordenando o time. Repositório privado — mostro o app e o código numa conversa.</p>
+            <p style="margin:0; font-size:var(--step-s); color:var(--muted); line-height:1.5;">Direção de produto, arquitetura e desenvolvimento, coordenando o time. Repositório privado. Mostro o app e o código numa conversa.</p>
           </aside>
         </div>
       </article>
@@ -462,7 +488,7 @@
           </div>
           <span class="card-kind">Visão computacional · backend</span>
           <span class="card-role">Projeto em equipe · <b>sua parte:</b> função "Procurado", integração e testes de front-end</span>
-          <p>Reconhecimento facial educacional: detecta e identifica rostos em imagem, vídeo e webcam, com cadastro de pessoas e alerta de correspondência. Feito para ensinar os conceitos — não para uso real.</p>
+          <p>Reconhecimento facial educacional: detecta e identifica rostos em imagem, vídeo e webcam, com cadastro de pessoas e alerta de correspondência. Feito para ensinar os conceitos, não para uso real.</p>
           <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">YOLO</span><span class="tag">DeepFace</span></div>
           <span class="arrow">ver no GitHub →</span>
         </a>
@@ -495,9 +521,35 @@
     </div>
   </section>
 
+  <section id="experiencia" class="rv">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-index">04</span><h2>Experiência</h2><span class="sec-line"></span></div>
+      <div class="exp">
+        <div class="exp-item" style="--i:0">
+          <span class="exp-dot"></span>
+          <div class="exp-body">
+            <div class="exp-top"><h3>Bradesco</h3><span class="exp-role">Estagiário · Bradesco Empresas</span></div>
+            <div class="exp-period">atual · 1 ano</div>
+            <p>Apoio à gestão e à gerência da agência 1258: controle operacional, acompanhamento de indicadores e apoio às demandas comerciais. Monto controles em Excel, analiso resultados e ajudo a organizar rotinas e a comunicação com as áreas internas.</p>
+            <div class="tags"><span class="tag">Excel</span><span class="tag">Indicadores</span><span class="tag">Operações</span></div>
+          </div>
+        </div>
+        <div class="exp-item" style="--i:1">
+          <span class="exp-dot"></span>
+          <div class="exp-body">
+            <div class="exp-top"><h3>Landix Sistemas</h3><span class="exp-role">Estagiário de DevOps e Infraestrutura</span></div>
+            <div class="exp-period">1 ano</div>
+            <p>Manutenção da infraestrutura de aplicações em nuvem, automação de provisionamento com Terraform e apoio ao pipeline de CI/CD. Também cuidei de máquinas e equipamentos do time e da resolução de problemas no geral.</p>
+            <div class="tags"><span class="tag">Terraform</span><span class="tag">CI/CD</span><span class="tag">Cloud</span><span class="tag">Infra</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="stack" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">04</span><h2>Stack</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">05</span><h2>Stack</h2><span class="sec-line"></span></div>
       <div class="stack-grid">
         <div class="stack-group">
           <p class="label">Linguagens</p>
@@ -525,11 +577,11 @@
 
   <section id="formacao" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">05</span><h2>Formação</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">06</span><h2>Formação</h2><span class="sec-line"></span></div>
       <div class="edu">
         <div class="edu-row">
           <div>
-            <div class="t">Sistemas de Informação — Bacharelado</div>
+            <div class="t">Bacharelado em Sistemas de Informação</div>
             <div class="s">Universidade de Uberaba (Uniube)</div>
           </div>
           <div class="when">conclusão prevista · dez/2027</div>
@@ -547,7 +599,7 @@
 
   <section id="contato" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">06</span><h2>Contato</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">07</span><h2>Contato</h2><span class="sec-line"></span></div>
       <p class="foot-cta">Vamos construir algo bom juntos?</p>
       <div class="contact-grid">
         <a class="contact-card" href="https://wa.me/5534998365726" target="_blank" rel="noopener" style="--i:0">
