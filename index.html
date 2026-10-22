@@ -5,10 +5,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#0B0F0D">
 <title>Pedro Evangelista Santos</title>
-<meta name="description" content="Pedro Evangelista Santos, desenvolvedor full-stack e mobile em Uberlândia/MG. React, React Native, FastAPI, Postgres e IA aplicada pelo backend.">
+<meta name="description" content="Pedro Evangelista Santos, Product Owner e desenvolvedor full-stack e mobile em Uberlândia/MG. React, React Native, FastAPI, Postgres, DevOps e IA aplicada.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pedro Evangelista Santos">
-<meta property="og:description" content="Desenvolvedor full-stack e mobile. React, React Native, FastAPI, Postgres e IA aplicada.">
+<meta property="og:description" content="Pedro Evangelista Santos, Product Owner e desenvolvedor full-stack e mobile em Uberlândia/MG. React, React Native, FastAPI, Postgres, DevOps e IA aplicada.">
 <meta property="og:url" content="https://peedrosantos.github.io/">
 <meta property="og:locale" content="pt_BR">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
@@ -175,6 +175,8 @@
   .feature h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.02em; margin: 0 0 0.5rem; }
   .feature-top p { margin: 0; color: var(--ink); max-width: 58ch; }
   .feature-body { padding: clamp(1.3rem, 3.5vw, 2rem); display: grid; gap: 1.6rem; }
+  .feature + .feature { margin-top: 1rem; }
+  .feature-top.solo { border-bottom: none; }
   @media (min-width: 720px) { .feature-body { grid-template-columns: 1.2fr 1fr; } }
   .hlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; }
   .hlist li { position: relative; padding-left: 1.5rem; color: var(--ink); font-size: var(--step-s); line-height: 1.5; }
@@ -185,7 +187,7 @@
   .tag { font-family: var(--font-mono); font-size: var(--step-xs); padding: 0.26rem 0.55rem; border-radius: 6px; background: var(--bg2); border: 1px solid var(--line); color: var(--muted); }
 
   /* ============ projetos ============ */
-  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fill, minmax(min(100%, 280px), 1fr)); }
+  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
   .card { display: flex; flex-direction: column; gap: 0.7rem; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); padding: 1.25rem; text-decoration: none; color: inherit; transition: transform 0.18s var(--ease), border-color 0.18s, box-shadow 0.18s; }
   .card:hover { transform: translateY(-3px); border-color: var(--line2); box-shadow: var(--shadow); }
   .card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
@@ -204,7 +206,10 @@
   .card-links a { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.16s, gap 0.16s; }
   .card-links a:hover { color: var(--accent); gap: 0.55rem; }
   .card-links a.primary { color: var(--accent); }
-  .also { margin: 1.4rem 0 0; font-size: var(--step-s); color: var(--muted); }
+  .also { margin: 2rem 0 0; }
+  .also ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
+  .also li { padding: 0.8rem 0; border-bottom: 1px solid var(--line); font-size: var(--step-s); color: var(--muted); line-height: 1.5; }
+  .also li strong { color: var(--ink); font-weight: 600; }
   .also a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--line2); }
   .also a:hover { border-bottom-color: var(--accent); }
 
@@ -285,6 +290,7 @@
         <a href="#projetos">Projetos</a>
         <a href="#experiencia">Experiência</a>
         <a href="#stack">Stack</a>
+        <a href="#certificacoes">Certificações</a>
         <a href="#contato">Contato</a>
       </div>
       <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar entre tema claro e escuro">
@@ -315,14 +321,20 @@
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.3h4.56V24H.2zM8.3 8.3h4.37v2.14h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.93h-4.56v-7.92c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.18V24H8.3z"/></svg>
             LinkedIn
           </a>
+          <!-- TODO: ativar quando o arquivo curriculo.pdf for enviado para a raiz do repositório.
+          <a class="btn btn-ghost" href="curriculo.pdf" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v6M9 15l3 3 3-3"/></svg>
+            Currículo (PDF)
+          </a>
+          -->
         </div>
       </div>
       <dl class="sheet">
         <div><dt>Foco</dt><dd>Full-stack · Mobile · IA aplicada</dd></div>
         <div><dt>Status</dt><dd><span class="on" aria-hidden="true"></span>Aberto a oportunidades</dd></div>
         <div><dt>Modelo</dt><dd>Presencial, híbrido ou remoto</dd></div>
-        <div><dt>Formação</dt><dd>Sistemas de Informação, Uniube <span class="sub">· 2027</span></dd></div>
-        <div><dt>Atual</dt><dd>Estagiário no Bradesco <span class="sub">· Bradesco Empresas</span></dd></div>
+        <div><dt>Formação</dt><dd>Sistemas de Informação, Uniube <span class="sub">· previsão dez/2027</span></dd></div>
+        <div><dt>Atual</dt><dd>Product Owner no Nocker<br>Estagiário no Bradesco <span class="sub">· Bradesco Empresas</span></dd></div>
         <div><dt>Contato</dt><dd><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></dd></div>
       </dl>
     </div>
@@ -344,23 +356,23 @@
       <div class="sec-head"><span class="sec-index">01</span><h2>Sobre</h2><span class="sec-line"></span></div>
       <div class="prose">
         <p class="r" style="--i:0">Estudante de <strong>Sistemas de Informação</strong> com prática em desenvolvimento full-stack e mobile: interfaces em React e React Native, APIs em FastAPI, Postgres e integrações de IA executadas no servidor, sem credencial no cliente.</p>
-        <p class="r lead" style="--i:1">No Nocker, responsável pela direção técnica: escolha de stack, arquitetura, revisão de código e coordenação do time até o build de publicação. Antes, estágio em DevOps na Landix, com Terraform e CI/CD, e formação técnica em redes de computadores pelo IFTM.</p>
+        <p class="r lead" style="--i:1">No Nocker, atuo como Product Owner e também na arquitetura, no desenvolvimento, em DevOps e em infraestrutura, coordenando o time até o build de publicação. Antes, estágio em DevOps na Landix, com Terraform e CI/CD, e formação técnica em redes de computadores pelo IFTM.</p>
       </div>
     </div>
   </section>
 
   <section id="nocker" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">02</span><h2>Destaque</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">02</span><h2>Destaques</h2><span class="sec-line"></span></div>
       <article class="feature r" style="--i:0">
         <div class="feature-top">
           <div class="feature-badges">
             <span class="badge live">Pré-lançamento · Play Store</span>
             <span class="badge">Código privado</span>
-            <span class="badge">Liderança técnica</span>
+            <span class="badge">Product Owner</span>
           </div>
           <h3>Nocker, super-app de finanças pessoais</h3>
-          <p>Construído com um time sob liderança técnica própria: definição de produto, arquitetura e a maior parte do código. Mobile, backend, dados e IA em um único produto, preparado para publicação na Play Store.</p>
+          <p>Construído com um time de 3 pessoas, com atuação como Product Owner: definição de produto, arquitetura e a maior parte do código. Mobile, backend, dados e IA em um único produto, preparado para publicação na Play Store.</p>
         </div>
         <div class="feature-body">
           <div>
@@ -382,8 +394,18 @@
               <span class="tag">JWT + OAuth</span><span class="tag">Docker</span><span class="tag">Render</span><span class="tag">EAS</span>
             </div>
             <p class="label" style="margin-top:1.3rem;">Papel</p>
-            <p class="body">Direção técnica e de produto, arquitetura e desenvolvimento, com coordenação do time. Repositório privado; demonstração do app sob demanda.</p>
+            <p class="body">Product Owner, arquitetura, desenvolvimento, DevOps e infraestrutura, coordenando um time de 3 pessoas. Repositório privado; demonstração do app sob demanda.</p>
           </aside>
+        </div>
+      </article>
+
+      <article class="feature r" style="--i:1">
+        <div class="feature-top solo">
+          <div class="feature-badges">
+            <span class="badge live">Competição</span>
+          </div>
+          <h3>Maratona de Programação da Uniube</h3>
+          <p>1º lugar na 18ª Maratona de Programação da Uniube (jun/2026), em dupla com um colega. Algoritmos, estruturas de dados e resolução de problemas sob tempo limitado.</p>
         </div>
       </article>
     </div>
@@ -395,6 +417,17 @@
       <div class="grid">
 
         <div class="card r" style="--i:0">
+          <div class="card-head">
+            <h3>Leaf</h3>
+          </div>
+          <span class="card-kind">Chat em tempo real com IA</span>
+          <span class="card-role">Projeto acadêmico em equipe · <b>Menção Honrosa na MostraTec Uniube 2026</b> (categoria comercial)</span>
+          <span class="card-role"><b>atuação:</b> desenvolvimento e DevOps; responsável pela maior parte da implementação e pelo deploy.</span>
+          <p>Plataforma de conversas em tempo real com assistente de IA integrado, envio de mídia e mensagens agendadas.</p>
+          <div class="tags"><span class="tag">React</span><span class="tag">Python / FastAPI</span><span class="tag">MongoDB Atlas</span><span class="tag">WebSocket</span><span class="tag">Render</span><span class="tag">Vercel</span></div>
+        </div>
+
+        <div class="card r" style="--i:1">
           <div class="card-head">
             <h3>Nexus&#8209;Explorer</h3>
             <span class="card-meta live">demo ao vivo</span>
@@ -409,54 +442,16 @@
           </div>
         </div>
 
-        <div class="card r" style="--i:1">
-          <div class="card-head">
-            <h3>Leaf</h3>
-            <span class="card-meta">pessoal</span>
-          </div>
-          <span class="card-kind">Chat em tempo real · IA · full-stack</span>
-          <span class="card-role">Projeto pessoal · <b>ciclo completo:</b> arquitetura, back, front, banco, infra e deploy</span>
-          <p>Plataforma de conversas em tempo real com IA integrada: as pessoas conversam entre si e a IA ajuda a escrever, revisar e melhorar as mensagens.</p>
-          <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">MongoDB Atlas</span><span class="tag">Render</span><span class="tag">Vercel</span></div>
-        </div>
-
-        <a class="card r" href="https://github.com/PeedroSantos/face-warrant" target="_blank" rel="noopener" style="--i:2">
-          <div class="card-head">
-            <h3>face-warrant</h3>
-            <span class="card-meta"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2l2.9 6.3 6.9.6-5.2 4.6 1.6 6.7L12 17.3 5.8 20.8l1.6-6.7L2.2 8.9l6.9-.6z"/></svg>2</span>
-          </div>
-          <span class="card-kind">Visão computacional · backend</span>
-          <span class="card-role">Projeto em equipe · <b>atuação:</b> função "Procurado", integração e testes de front-end</span>
-          <p>Projeto didático de reconhecimento facial: detecção e identificação de rostos em imagem, vídeo e webcam, com cadastro de pessoas e alerta de correspondência.</p>
-          <div class="tags"><span class="tag">Python</span><span class="tag">FastAPI</span><span class="tag">YOLO</span><span class="tag">DeepFace</span></div>
-          <span class="arrow">ver no GitHub →</span>
-        </a>
-
-        <div class="card r" style="--i:3">
-          <div class="card-head">
-            <h3>NASA Space Apps</h3>
-            <span class="card-meta">hackathon</span>
-          </div>
-          <span class="card-kind">IA · saúde</span>
-          <span class="card-role">Equipe · <b>hackathon internacional</b></span>
-          <p>App para pessoas com problemas respiratórios: previsão do tempo, alertas personalizados e IA para se preparar para condições climáticas que afetam a saúde.</p>
-          <div class="tags"><span class="tag">React</span><span class="tag">Python</span><span class="tag">Railway</span><span class="tag">IA</span></div>
-        </div>
-
-        <a class="card r" href="https://github.com/PeedroSantos/DueDay" target="_blank" rel="noopener" style="--i:4">
-          <div class="card-head">
-            <h3>DueDay</h3>
-            <span class="card-meta">Android</span>
-          </div>
-          <span class="card-kind">Mobile nativo</span>
-          <span class="card-role">Projeto em equipe · <b>atuação:</b> build, correções de UI e entrega</span>
-          <p>App Android para contas e documentos com vencimento: CRUD completo, histórico de pagamento e notificações locais para prazos. Persistência local, sem backend.</p>
-          <div class="tags"><span class="tag">Java 11</span><span class="tag">SQLite</span><span class="tag">MVC</span><span class="tag">Gradle</span></div>
-          <span class="arrow">ver no GitHub →</span>
-        </a>
-
       </div>
-      <p class="also r" style="--i:5">Também no GitHub: <a href="https://github.com/PeedroSantos/java-padroes-de-projeto-na-pratica" target="_blank" rel="noopener">padrões de projeto em Java</a> e experimentos anteriores de visão computacional.</p>
+      <div class="also r" style="--i:2">
+        <p class="label">Também</p>
+        <ul>
+          <li><strong>NASA Space Apps Challenge:</strong> participação com a equipe Apóstolos da Codificação. Plataforma web de alertas climáticos personalizados com IA para pessoas com problemas respiratórios (React, Python).</li>
+          <li><a href="https://github.com/PeedroSantos/face-warrant" target="_blank" rel="noopener">face-warrant</a>: reconhecimento facial didático em imagem, vídeo e webcam, em equipe (Python, FastAPI, YOLO, DeepFace).</li>
+          <li><a href="https://github.com/PeedroSantos/DueDay" target="_blank" rel="noopener">DueDay</a>: app Android para contas e documentos com vencimento, em equipe (Java, SQLite).</li>
+          <li><a href="https://github.com/PeedroSantos/java-padroes-de-projeto-na-pratica" target="_blank" rel="noopener">Padrões de projeto em Java</a> e experimentos anteriores de visão computacional.</li>
+        </ul>
+      </div>
     </div>
   </section>
 
@@ -465,15 +460,23 @@
       <div class="sec-head"><span class="sec-index">04</span><h2>Experiência</h2><span class="sec-line"></span></div>
       <div class="exp">
         <div class="exp-item r" style="--i:0">
-          <div class="exp-period">atual · 1 ano</div>
+          <div class="exp-period">08/2026 – atual</div>
+          <div class="exp-body">
+            <div class="exp-top"><h3>Venturi Holding</h3><span class="exp-role">Product Owner (Nocker)</span></div>
+            <p>Product Owner do Nocker, app de finanças pessoais em pré-lançamento na Play Store. Também atuo na arquitetura, no desenvolvimento, em DevOps e em infraestrutura, coordenando um time de 3 pessoas até o build de publicação.</p>
+            <div class="tags"><span class="tag">React Native</span><span class="tag">FastAPI</span><span class="tag">Supabase / Postgres</span><span class="tag">Docker</span><span class="tag">Kotlin</span><span class="tag">Anthropic SDK</span></div>
+          </div>
+        </div>
+        <div class="exp-item r" style="--i:1">
+          <div class="exp-period">05/2025 – atual</div>
           <div class="exp-body">
             <div class="exp-top"><h3>Bradesco</h3><span class="exp-role">Estagiário · Bradesco Empresas</span></div>
             <p>Suporte à gestão da agência 1258 no controle operacional e no acompanhamento de indicadores, com apoio às demandas comerciais. Elaboração de controles em Excel e análise de resultados para organizar as rotinas do time.</p>
             <div class="tags"><span class="tag">Excel</span><span class="tag">Indicadores</span><span class="tag">Operações</span></div>
           </div>
         </div>
-        <div class="exp-item r" style="--i:1">
-          <div class="exp-period">1 ano</div>
+        <div class="exp-item r" style="--i:2">
+          <div class="exp-period">03/2024 – 05/2025</div>
           <div class="exp-body">
             <div class="exp-top"><h3>Landix Sistemas</h3><span class="exp-role">Estagiário de DevOps e Infraestrutura</span></div>
             <p>Manutenção da infraestrutura de aplicações em nuvem, automação de provisionamento com Terraform e suporte ao pipeline de CI/CD, além da gestão de máquinas e equipamentos do time.</p>
@@ -534,9 +537,45 @@
     </div>
   </section>
 
+  <section id="certificacoes" class="rv">
+    <div class="wrap">
+      <div class="sec-head"><span class="sec-index">07</span><h2>Certificações</h2><span class="sec-line"></span></div>
+      <div class="edu">
+        <div class="edu-row r" style="--i:0">
+          <div>
+            <div class="t">CEA, Certificação Anbima de Especialistas em Investimento</div>
+            <div class="s">Anbima</div>
+          </div>
+          <div class="when">jul/2025 · válida até jul/2028</div>
+        </div>
+        <div class="edu-row r" style="--i:1">
+          <div>
+            <div class="t">NLW Journey DevOps</div>
+            <div class="s">Rocketseat</div>
+          </div>
+          <div class="when">jul/2024</div>
+        </div>
+        <div class="edu-row r" style="--i:2">
+          <div>
+            <div class="t">AWS na Prática</div>
+            <div class="s">Udemy</div>
+          </div>
+          <div class="when">38,5h</div>
+        </div>
+        <div class="edu-row r" style="--i:3">
+          <div>
+            <div class="t">Bootcamp Orange Tech+ Back End</div>
+            <div class="s">DIO</div>
+          </div>
+          <div class="when">87h</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section id="contato" class="rv">
     <div class="wrap">
-      <div class="sec-head"><span class="sec-index">07</span><h2>Contato</h2><span class="sec-line"></span></div>
+      <div class="sec-head"><span class="sec-index">08</span><h2>Contato</h2><span class="sec-line"></span></div>
       <p class="foot-cta r" style="--i:0">Aberto a novos projetos e oportunidades.</p>
       <div class="contact-grid">
         <a class="contact-card r" href="https://wa.me/5534998365726" target="_blank" rel="noopener" style="--i:1">
