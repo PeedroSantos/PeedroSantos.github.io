@@ -3,634 +3,266 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#0B0F0D">
 <title>Pedro Evangelista Santos</title>
-<meta name="description" content="Pedro Evangelista Santos, Product Owner, Tech Lead e desenvolvedor full-stack e mobile em Uberlândia/MG. React, React Native, FastAPI, Postgres, DevOps e IA aplicada.">
+<meta name="description" content="Pedro Evangelista Santos. Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store. Estagiário no Bradesco Empresas. Uberlândia/MG.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pedro Evangelista Santos">
-<meta property="og:description" content="Pedro Evangelista Santos, Product Owner, Tech Lead e desenvolvedor full-stack e mobile em Uberlândia/MG. React, React Native, FastAPI, Postgres, DevOps e IA aplicada.">
+<meta property="og:description" content="Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store. Estagiário no Bradesco Empresas.">
 <meta property="og:url" content="https://peedrosantos.github.io/">
 <meta property="og:locale" content="pt_BR">
+<meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#16181a" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
-  /* Tema escuro é o principal. O claro deriva dele e só entra pelo toggle. */
+  /* Hallmark · macrostructure: Long Document · tone: austere · anchor hue: 255 (azul-tinta)
+   * nav: N1a · footer: Ft1 · enrichment: none (typography only)
+   * pre-emit critique: P4 H4 E4 S5 R5 V4
+   */
   :root {
-    --bg: #0B0F0D;
-    --bg2: #111713;
-    --surface: #151C18;
-    --line: #273129;
-    --line2: #384733;
-    --ink: #F2F5F0;
-    --muted: #9AA59D;
-    --faint: #6A766E;
-    --accent: #A3E635;
-    --accent2: #BEF264;
-    --accent-deep: #4D7C0F;
-    --accent-soft: rgba(163, 230, 53, 0.12);
-    --on-accent: #0B0F0D;
-    --shadow: 0 1px 2px rgba(0, 0, 0, 0.32), 0 20px 44px -24px rgba(0, 0, 0, 0.72);
+    --paper: oklch(96.5% 0.004 120);
+    --paper-2: oklch(93% 0.005 120);
+    --ink: oklch(22% 0.01 250);
+    --ink-2: oklch(42% 0.012 250);
+    --ink-3: oklch(55% 0.01 250);
+    --rule: oklch(86% 0.006 250);
+    --accent: oklch(45% 0.13 255);
+    --accent-ink: oklch(98% 0.004 250);
 
-    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
-    --font-body: "IBM Plex Sans", system-ui, -apple-system, sans-serif;
-    --font-mono: "IBM Plex Mono", ui-monospace, "SFMono-Regular", monospace;
+    --font-display: "Newsreader", Georgia, "Times New Roman", serif;
+    --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
 
-    --step-xs: 0.78rem;
-    --step-s: 0.9rem;
-    --step-0: 1rem;
-    --step-1: 1.18rem;
-    --step-2: 1.55rem;
-    --step-3: 2.1rem;
-    --step-4: clamp(3rem, 9.5vw, 6.2rem);
-    --index: clamp(2.4rem, 6vw, 3.6rem);
-    --maxw: 1040px;
-    --pad: clamp(1.1rem, 4vw, 2rem);
-    --ease: cubic-bezier(.22, .61, .36, 1);
+    --text-s: 0.875rem;
+    --text-0: 1rem;
+    --text-1: 1.125rem;
+    --text-2: 1.5rem;
+    --text-3: clamp(2.2rem, 6vw, 3.4rem);
+
+    --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 1rem;
+    --space-lg: 1.5rem; --space-xl: 2.5rem; --space-2xl: 4rem;
+    --measure: 40rem;
+    --ease-out: cubic-bezier(.22, .61, .36, 1);
   }
-  :root[data-theme="light"] {
-    --bg: #F6F8F1;
-    --bg2: #EDF1E4;
-    --surface: #ffffff;
-    --line: #DEE4D3;
-    --line2: #C9D2B9;
-    --ink: #131810;
-    --muted: #56604C;
-    --faint: #8A9480;
-    --accent: #3F6212;
-    --accent2: #4D7C0F;
-    --accent-deep: #365314;
-    --accent-soft: rgba(77, 124, 15, 0.10);
-    --on-accent: #ffffff;
-    --shadow: 0 1px 2px rgba(16, 32, 26, 0.05), 0 18px 40px -24px rgba(16, 32, 26, 0.28);
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: oklch(19% 0.006 250);
+      --paper-2: oklch(23% 0.008 250);
+      --ink: oklch(93% 0.006 250);
+      --ink-2: oklch(76% 0.008 250);
+      --ink-3: oklch(64% 0.008 250);
+      --rule: oklch(32% 0.008 250);
+      --accent: oklch(76% 0.11 255);
+      --accent-ink: oklch(19% 0.006 250);
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: oklch(19% 0.006 250);
+    --paper-2: oklch(23% 0.008 250);
+    --ink: oklch(93% 0.006 250);
+    --ink-2: oklch(76% 0.008 250);
+    --ink-3: oklch(64% 0.008 250);
+    --rule: oklch(32% 0.008 250);
+    --accent: oklch(76% 0.11 255);
+    --accent-ink: oklch(19% 0.006 250);
   }
 
   * { box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
+  html, body { overflow-x: clip; }
   body {
-    margin: 0; background: var(--bg); color: var(--ink);
-    font-family: var(--font-body); font-size: var(--step-0); line-height: 1.6;
-    -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
-    overflow-x: hidden;
+    margin: 0; background: var(--paper); color: var(--ink);
+    font-family: var(--font-body); font-size: var(--text-0); line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
   }
-  a { color: inherit; }
-  ::selection { background: var(--accent); color: var(--on-accent); }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
-  .wrap { max-width: var(--maxw); margin: 0 auto; padding-inline: var(--pad); }
-  .mono { font-family: var(--font-mono); }
+  a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  ::selection { background: var(--accent); color: var(--accent-ink); }
 
-  /* ============ topbar ============ */
-  .topbar {
-    position: sticky; top: 0; z-index: 30;
-    background: color-mix(in srgb, var(--bg) 88%, transparent);
-    backdrop-filter: blur(12px); border-bottom: 1px solid var(--line);
+  .page { max-width: var(--measure); margin: 0 auto; padding: var(--space-xl) var(--space-md) var(--space-2xl); }
+
+  .top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md); font-size: var(--text-s); color: var(--ink-3); margin-bottom: var(--space-2xl); }
+  .top nav { display: flex; gap: var(--space-md); flex-wrap: wrap; }
+  .top a { color: var(--ink-2); text-decoration: none; white-space: nowrap; }
+  .top a:hover { color: var(--ink); text-decoration: underline; }
+  .theme { font: inherit; color: var(--ink-2); background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap; }
+  .theme:hover { color: var(--ink); text-decoration: underline; }
+
+  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; font-style: normal; color: var(--ink); text-wrap: balance; }
+  h1 { font-size: var(--text-3); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 var(--space-md); overflow-wrap: anywhere; min-width: 0; }
+  .role { font-size: var(--text-1); color: var(--ink-2); margin: 0 0 var(--space-lg); }
+  .intro p { margin: 0 0 var(--space-md); }
+  .links { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); margin: var(--space-lg) 0 0; padding: 0; list-style: none; font-size: var(--text-s); }
+  .links a { white-space: nowrap; }
+
+  section { margin-top: var(--space-2xl); }
+  h2 { font-size: var(--text-2); line-height: 1.2; margin: 0 0 var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--rule); }
+
+  .job + .job { margin-top: var(--space-xl); }
+  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 var(--space-md); }
+  h3 { font-size: 1.25rem; line-height: 1.3; margin: 0; }
+  .when { font-size: var(--text-s); color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
+  .where { font-size: var(--text-s); color: var(--ink-2); margin: 2px 0 var(--space-md); }
+  .job p { margin: 0 0 var(--space-md); }
+  ul.points { margin: 0; padding-left: 1.1rem; }
+  ul.points li { margin-bottom: var(--space-sm); }
+  ul.points li::marker { color: var(--ink-3); }
+  .stack { font-size: var(--text-s); color: var(--ink-3); margin: var(--space-md) 0 0; }
+
+  .plain { margin: 0; padding: 0; list-style: none; }
+  .plain li { padding: var(--space-md) 0; border-top: 1px solid var(--rule); }
+  .plain li:first-child { border-top: 0; padding-top: 0; }
+  .plain strong { font-weight: 600; }
+  .plain .meta { display: block; font-size: var(--text-s); color: var(--ink-3); }
+
+  dl.skills { margin: 0; display: grid; gap: var(--space-md); }
+  dl.skills dt { font-weight: 600; }
+  dl.skills dd { margin: 0; color: var(--ink-2); }
+
+  footer { margin-top: var(--space-2xl); padding-top: var(--space-md); border-top: 1px solid var(--rule); font-size: var(--text-s); color: var(--ink-3); }
+
+  @media (max-width: 480px) {
+    .top { flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-xl); }
   }
-  .topbar-inner { display: flex; align-items: center; justify-content: space-between; gap: 1rem; height: 58px; }
-  .brand { font-family: var(--font-mono); font-size: var(--step-s); font-weight: 600; text-decoration: none; display: inline-flex; align-items: center; gap: 0.55rem; }
-  .brand .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); }
-  .nav { display: flex; align-items: center; gap: 1.6rem; }
-  .nav-links { display: flex; gap: 1.4rem; }
-  .nav-links a { position: relative; font-family: var(--font-mono); font-size: var(--step-xs); letter-spacing: 0.02em; color: var(--muted); text-decoration: none; transition: color 0.16s; }
-  .nav-links a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: -5px; height: 1.5px; background: var(--accent); transition: right 0.22s var(--ease); }
-  .nav-links a:hover { color: var(--ink); }
-  .nav-links a:hover::after { right: 0; }
-  @media (max-width: 720px) { .nav-links { display: none; } }
-
-  .theme-toggle {
-    font-family: var(--font-mono); font-size: var(--step-xs); letter-spacing: 0.02em;
-    display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.38rem 0.7rem;
-    border: 1px solid var(--line2); border-radius: 999px; background: var(--bg2); color: var(--muted);
-    cursor: pointer; transition: color 0.16s, border-color 0.16s;
-  }
-  .theme-toggle:hover { color: var(--ink); border-color: var(--accent); }
-  .theme-toggle .sw { width: 9px; height: 9px; border-radius: 50%; border: 1.5px solid var(--accent); background: transparent; transition: background 0.16s; }
-  :root[data-theme="light"] .theme-toggle .sw { background: var(--accent); }
-  .theme-toggle .t-dark, :root[data-theme="light"] .theme-toggle .t-light { display: none; }
-  :root[data-theme="light"] .theme-toggle .t-dark { display: inline; }
-
-  /* ============ hero ============ */
-  .hero { padding: clamp(3.4rem, 10vw, 7rem) 0 clamp(2.6rem, 6vw, 4.4rem); }
-  .hero-grid { display: grid; gap: 2.4rem; align-items: end; }
-  @media (min-width: 860px) { .hero-grid { grid-template-columns: 1.5fr 1fr; gap: 3rem; } }
-  .eyebrow { font-family: var(--font-mono); font-size: var(--step-xs); text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin: 0 0 1.4rem; }
-  h1 { font-family: var(--font-display); font-weight: 800; font-size: var(--step-4); line-height: 0.92; letter-spacing: -0.045em; margin: 0 0 1.6rem; }
-  h1 .line { display: block; }
-  .pitch { font-size: var(--step-1); color: var(--ink); max-width: 36ch; margin: 0 0 2rem; line-height: 1.5; }
-  .pitch em { color: var(--accent); font-style: normal; }
-  .actions { display: flex; flex-wrap: wrap; gap: 0.7rem; }
-
-  /* ficha: pares rótulo e valor, em mono, no lugar dos chips */
-  .sheet { margin: 0; padding: 0; border-top: 1px solid var(--line2); }
-  .sheet div { display: grid; grid-template-columns: 7.5rem 1fr; gap: 1rem; padding: 0.75rem 0; border-bottom: 1px solid var(--line); }
-  .sheet dt { font-family: var(--font-mono); font-size: var(--step-xs); text-transform: uppercase; letter-spacing: 0.12em; color: var(--faint); margin: 0; padding-top: 0.15em; }
-  .sheet dd { margin: 0; font-size: var(--step-s); color: var(--ink); }
-  .sheet dd .sub { color: var(--muted); }
-  .sheet dd a { text-decoration: none; border-bottom: 1px solid var(--line2); transition: border-color 0.16s; }
-  .sheet dd a:hover { border-bottom-color: var(--accent); }
-  @media (max-width: 640px) { .sheet div { grid-template-columns: 5.5rem 1fr; gap: 0.7rem; } }
-  .sheet .on { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 0.5rem; vertical-align: 1px; }
-
-  .btn { font-family: var(--font-body); font-size: var(--step-s); font-weight: 500; display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.64rem 1.1rem; border-radius: 10px; text-decoration: none; cursor: pointer; border: 1px solid transparent; transition: transform 0.14s var(--ease), background 0.15s, border-color 0.15s, box-shadow 0.15s; }
-  .btn svg { width: 16px; height: 16px; }
-  .btn-primary { background: var(--accent); color: var(--on-accent); }
-  .btn-primary:hover { background: var(--accent2); }
-  .btn-ghost { background: var(--surface); border-color: var(--line); color: var(--ink); }
-  .btn-ghost:hover { border-color: var(--accent); }
-  .btn:active { transform: scale(.96); }
-
-  /* CTA em pílula com seta circular */
-  .btn-pill { border-radius: 999px; padding: 0.42rem 0.5rem 0.42rem 1.2rem; gap: 0.9rem; }
-  .btn-pill .circ { display: inline-grid; place-items: center; width: 30px; height: 30px; border-radius: 50%; background: var(--on-accent); color: var(--accent); transition: transform 0.22s var(--ease); }
-  .btn-pill .circ svg { width: 15px; height: 15px; }
-  .btn-pill:hover .circ { transform: translateX(3px); }
-
-  /* faixa rolante de stack: tipo grande, palavras alternando cheia e vazada */
-  .marquee-band { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); background: var(--bg2); overflow: hidden; }
-  .marquee { display: flex; width: max-content; animation: marquee 40s linear infinite; }
-  .marquee:hover { animation-play-state: paused; }
-  .marquee-track { display: flex; align-items: center; gap: 2.4rem; padding: 0.9rem 1.2rem; }
-  .marquee-track span { font-family: var(--font-display); font-weight: 800; font-size: clamp(1.5rem, 4vw, 2.6rem); letter-spacing: -0.02em; text-transform: uppercase; color: var(--ink); white-space: nowrap; }
-  .marquee-track span.o { color: transparent; -webkit-text-stroke: 1.4px var(--accent); }
-  @keyframes marquee { to { transform: translateX(-50%); } }
-
-  /* ============ sections ============ */
-  section { padding: clamp(3rem, 7vw, 5.2rem) 0; border-top: 1px solid var(--line); }
-  .sec-head { display: flex; align-items: center; gap: 0.9rem; margin: 0 0 2.2rem; }
-  .sec-index { font-family: var(--font-mono); font-size: var(--index); font-weight: 500; line-height: 1; color: var(--faint); font-variant-numeric: tabular-nums; }
-  .sec-line { flex: 1; height: 1px; background: var(--line2); transform-origin: left; }
-  h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-3); letter-spacing: -0.03em; margin: 0; white-space: nowrap; }
-  .prose { display: grid; gap: 1.2rem; }
-  @media (min-width: 860px) { .prose { grid-template-columns: 1fr 1fr; gap: 2.4rem; } }
-  .prose p { max-width: 54ch; margin: 0; }
-  .prose strong { font-weight: 600; }
-  .prose .lead { color: var(--muted); }
-
-  /* ============ destaque ============ */
-  .feature { border: 1px solid var(--line); border-radius: 16px; background: var(--surface); box-shadow: var(--shadow); overflow: hidden; }
-  .feature-top { padding: clamp(1.3rem, 3.5vw, 2rem); border-bottom: 1px solid var(--line); }
-  .feature-badges { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 0 0 1rem; }
-  .badge { font-family: var(--font-mono); font-size: var(--step-xs); padding: 0.24rem 0.55rem; border-radius: 6px; border: 1px solid var(--line2); color: var(--muted); }
-  .badge.live { color: var(--accent); border-color: color-mix(in srgb, var(--accent) 45%, var(--line)); }
-  .feature h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.02em; margin: 0 0 0.5rem; }
-  .feature-top p { margin: 0; color: var(--ink); max-width: 58ch; }
-  .feature-body { padding: clamp(1.3rem, 3.5vw, 2rem); display: grid; gap: 1.6rem; }
-  .feature + .feature { margin-top: 1rem; }
-  .feature-top.solo { border-bottom: none; }
-  @media (min-width: 720px) { .feature-body { grid-template-columns: 1.2fr 1fr; } }
-  .hlist { margin: 0; padding: 0; list-style: none; display: grid; gap: 0.7rem; }
-  .hlist li { position: relative; padding-left: 1.5rem; color: var(--ink); font-size: var(--step-s); line-height: 1.5; }
-  .hlist li::before { content: ""; position: absolute; left: 0; top: 0.5em; width: 7px; height: 7px; border-radius: 2px; background: var(--accent); }
-  .label { font-family: var(--font-mono); font-size: var(--step-xs); text-transform: uppercase; letter-spacing: 0.14em; color: var(--faint); margin: 0 0 0.7rem; }
-  .sidenote p.body { margin: 0; font-size: var(--step-s); color: var(--muted); line-height: 1.5; }
-  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
-  .tag { font-family: var(--font-mono); font-size: var(--step-xs); padding: 0.26rem 0.55rem; border-radius: 6px; background: var(--bg2); border: 1px solid var(--line); color: var(--muted); }
-
-  /* ============ projetos ============ */
-  .grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 320px), 1fr)); }
-  .card { display: flex; flex-direction: column; gap: 0.7rem; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); padding: 1.25rem; text-decoration: none; color: inherit; transition: transform 0.18s var(--ease), border-color 0.18s, box-shadow 0.18s; }
-  .card:hover { transform: translateY(-3px); border-color: var(--line2); box-shadow: var(--shadow); }
-  .card-head { display: flex; align-items: center; justify-content: space-between; gap: 0.6rem; }
-  .card-head h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.02em; margin: 0; }
-  .card-meta { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); display: inline-flex; align-items: center; gap: 0.3rem; }
-  .card-meta svg { width: 12px; height: 12px; }
-  .card-meta.live { color: var(--accent); }
-  .card-meta.live::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: var(--accent); }
-  .card-kind { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--accent); }
-  .card-role { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); line-height: 1.4; }
-  .card-role b { color: var(--muted); font-weight: 500; }
-  .card p { margin: 0; font-size: var(--step-s); color: var(--muted); line-height: 1.5; flex: 1; }
-  .card .arrow { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--muted); display: inline-flex; align-items: center; gap: 0.35rem; margin-top: auto; transition: gap 0.16s, color 0.16s; }
-  a.card:hover .arrow { gap: 0.6rem; color: var(--accent); }
-  .card-links { display: flex; flex-wrap: wrap; gap: 0.2rem 1.1rem; margin-top: auto; }
-  .card-links a { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: color 0.16s, gap 0.16s; }
-  .card-links a:hover { color: var(--accent); gap: 0.55rem; }
-  .card-links a.primary { color: var(--accent); }
-  .also { margin: 2rem 0 0; }
-  .also ul { margin: 0; padding: 0; list-style: none; border-top: 1px solid var(--line); }
-  .also li { padding: 0.8rem 0; border-bottom: 1px solid var(--line); font-size: var(--step-s); color: var(--muted); line-height: 1.5; }
-  .also li strong { color: var(--ink); font-weight: 600; }
-  .also a { color: var(--accent); text-decoration: none; border-bottom: 1px solid var(--line2); }
-  .also a:hover { border-bottom-color: var(--accent); }
-
-  /* ============ stack ============ */
-  .stack-grid { display: grid; gap: 1.4rem 2rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 230px), 1fr)); }
-
-  /* ============ experiência ============ */
-  .exp { display: grid; gap: 0; }
-  .exp-item { display: grid; grid-template-columns: 8rem 1fr; gap: 1.2rem; padding: 1.4rem 0; border-top: 1px solid var(--line); }
-  .exp-item:first-child { border-top: none; padding-top: 0; }
-  @media (max-width: 640px) { .exp-item { grid-template-columns: 1fr; gap: 0.4rem; } }
-  .exp-period { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); padding-top: 0.3em; }
-  .exp-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.3rem 0.8rem; margin: 0 0 0.5rem; }
-  .exp-top h3 { font-family: var(--font-display); font-weight: 700; font-size: var(--step-1); letter-spacing: -0.02em; margin: 0; }
-  .exp-role { font-size: var(--step-s); color: var(--accent); font-weight: 500; }
-  .exp-body > p { margin: 0 0 0.7rem; font-size: var(--step-s); color: var(--muted); line-height: 1.55; max-width: 62ch; }
-
-  /* ============ formação ============ */
-  .edu-row { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 0.4rem 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
-  .edu-row:last-child { border-bottom: none; }
-  .edu-row .t { font-weight: 600; font-size: var(--step-1); }
-  .edu-row .s { color: var(--muted); font-size: var(--step-s); }
-  .edu-row .when { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--accent); white-space: nowrap; }
-
-  /* ============ contato ============ */
-  .foot-cta { font-family: var(--font-display); font-weight: 700; font-size: var(--step-2); letter-spacing: -0.02em; margin: 0 0 1.4rem; max-width: 22ch; }
-  .contact-grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr)); }
-  .contact-card { display: flex; align-items: center; gap: 0.9rem; padding: 1.15rem 1.25rem; border: 1px solid var(--line); border-radius: 13px; background: var(--surface); text-decoration: none; color: inherit; transition: transform 0.18s var(--ease), border-color 0.18s, box-shadow 0.18s; }
-  .contact-card:hover { transform: translateY(-3px); border-color: var(--line2); box-shadow: var(--shadow); }
-  .contact-ico { flex: none; width: 42px; height: 42px; border-radius: 11px; background: var(--accent-soft); color: var(--accent); display: grid; place-items: center; }
-  .contact-ico svg { width: 21px; height: 21px; }
-  .contact-card .k { display: block; font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); text-transform: uppercase; letter-spacing: 0.1em; }
-  .contact-card .v { display: block; font-size: var(--step-s); font-weight: 600; margin-top: 3px; overflow-wrap: anywhere; }
-
-  footer { border-top: 1px solid var(--line); padding: 2.2rem 0 3rem; }
-  .foot-note { font-family: var(--font-mono); font-size: var(--step-xs); color: var(--faint); display: flex; flex-wrap: wrap; justify-content: space-between; gap: 0.4rem 1rem; margin: 0; }
-
-  /* ============ movimento ============
-     Uma entrada só, reaproveitada: sobe e aparece. O hero corta as linhas
-     do nome de baixo pra cima; a régua de cada seção se desenha. Nada mais. */
-  @keyframes rise { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
-  @keyframes wipeUp { from { clip-path: inset(0 0 105% 0); } to { clip-path: inset(0 0 -5% 0); } }
-  @keyframes drawLine { from { transform: scaleX(0); } to { transform: scaleX(1); } }
-
-  html.js .hero .eyebrow, html.js .hero .pitch, html.js .hero .actions, html.js .hero .sheet { opacity: 0; animation: rise .7s var(--ease) both; }
-  html.js .hero .eyebrow { animation-delay: .05s; }
-  html.js h1 .line { animation: wipeUp .8s var(--ease) both; }
-  html.js h1 .line:nth-child(1) { animation-delay: .16s; }
-  html.js h1 .line:nth-child(2) { animation-delay: .30s; }
-  html.js .hero .pitch { animation-delay: .55s; }
-  html.js .hero .actions { animation-delay: .68s; }
-  html.js .hero .sheet { animation-delay: .6s; }
-
-  html.js .rv .sec-line { transform: scaleX(0); }
-  html.js .rv.in .sec-line { animation: drawLine .8s var(--ease) .1s forwards; }
-  html.js .rv .sec-index, html.js .rv h2, html.js .rv .r { opacity: 0; }
-  html.js .rv.in .sec-index, html.js .rv.in h2 { animation: rise .6s var(--ease) both; }
-  html.js .rv.in h2 { animation-delay: .08s; }
-  html.js .rv.in .r { animation: rise .6s var(--ease) both; animation-delay: calc(.15s + var(--i, 0) * .08s); }
-
-  @media (prefers-reduced-motion: reduce) {
-    * { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
-    html.js .hero .eyebrow, html.js .hero .pitch, html.js .hero .actions, html.js .hero .sheet,
-    html.js .rv .sec-index, html.js .rv h2, html.js .rv .r { opacity: 1 !important; }
-    html.js .rv .sec-line { transform: scaleX(1) !important; }
-    html.js h1 .line { clip-path: none !important; }
+  @media print {
+    .top nav, .theme { display: none; }
+    body { background: #fff; color: #000; }
   }
 </style>
 </head>
 <body>
+<div class="page">
 
-<header class="topbar">
-  <div class="wrap topbar-inner">
-    <a class="brand" href="#top"><span class="dot" aria-hidden="true"></span>Pedro E. Santos</a>
-    <nav class="nav" aria-label="Seções">
-      <div class="nav-links">
-        <a href="#nocker">Nocker</a>
-        <a href="#projetos">Projetos</a>
-        <a href="#experiencia">Experiência</a>
-        <a href="#stack">Stack</a>
-        <a href="#certificacoes">Certificações</a>
-        <a href="#contato">Contato</a>
-      </div>
-      <button class="theme-toggle" id="themeToggle" type="button" aria-label="Alternar entre tema claro e escuro">
-        <span class="sw" aria-hidden="true"></span>
-        <span class="t-light">modo claro</span><span class="t-dark">modo escuro</span>
-      </button>
+  <header class="top">
+    <span>Uberlândia, MG</span>
+    <nav aria-label="Seções">
+      <a href="#experiencia">Experiência</a>
+      <a href="#projetos">Projetos</a>
+      <a href="#contato">Contato</a>
+      <button class="theme" id="theme" type="button">Tema</button>
     </nav>
-  </div>
-</header>
+  </header>
 
-<main id="top">
-  <section class="hero" style="border-top: none;">
-    <div class="wrap hero-grid">
-      <div>
-        <p class="eyebrow">Desenvolvedor de software · Uberlândia/MG</p>
-        <h1><span class="line">Pedro Evangelista</span><span class="line">Santos</span></h1>
-        <p class="pitch">Aplicações <em>web e mobile</em> de ponta a ponta: interface, API, banco de dados, deploy e infraestrutura.</p>
-        <div class="actions">
-          <a class="btn btn-primary btn-pill" href="#contato">
-            Falar comigo
-            <span class="circ"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
-          </a>
-          <a class="btn btn-ghost" href="https://github.com/PeedroSantos" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.39-3.5-1.39-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.44 1.13 3.03.86.09-.67.36-1.13.66-1.39-2.31-.26-4.74-1.16-4.74-5.14 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.32.1-2.75 0 0 .87-.28 2.85 1.07a9.9 9.9 0 0 1 5.19 0c1.98-1.35 2.85-1.07 2.85-1.07.56 1.43.21 2.49.1 2.75.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.87-4.75 5.13.37.32.7.95.7 1.92v2.85c0 .28.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg>
-            GitHub
-          </a>
-          <a class="btn btn-ghost" href="https://www.linkedin.com/in/pedroevangelistasantos" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.3h4.56V24H.2zM8.3 8.3h4.37v2.14h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.93h-4.56v-7.92c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.18V24H8.3z"/></svg>
-            LinkedIn
-          </a>
-          <!-- TODO: ativar quando o arquivo curriculo.pdf for enviado para a raiz do repositório.
-          <a class="btn btn-ghost" href="curriculo.pdf" target="_blank" rel="noopener">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z"/><path d="M14 3v6h6M12 12v6M9 15l3 3 3-3"/></svg>
-            Currículo (PDF)
-          </a>
-          -->
-        </div>
-      </div>
-      <dl class="sheet">
-        <div><dt>Foco</dt><dd>Full-stack · Mobile · DevOps · IA aplicada</dd></div>
-        <div><dt>Status</dt><dd><span class="on" aria-hidden="true"></span>Aberto a oportunidades</dd></div>
-        <div><dt>Modelo</dt><dd>Presencial, híbrido ou remoto</dd></div>
-        <div><dt>Formação</dt><dd>Sistemas de Informação, Uniube <span class="sub">· previsão dez/2027</span></dd></div>
-        <div><dt>Atual</dt><dd>Product Owner e Tech Lead no Nocker <span class="sub">· Venturi Holding</span><br>Estagiário no Bradesco <span class="sub">· Bradesco Empresas</span></dd></div>
-        <div><dt>Contato</dt><dd><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></dd></div>
-      </dl>
+  <main>
+    <div class="intro">
+      <h1>Pedro Evangelista Santos</h1>
+      <p class="role">Tech Lead e Product Owner do Nocker · Estagiário no Bradesco Empresas</p>
+      <p>Estudo Sistemas de Informação na Uniube (6º período) e uso IA para resolver problemas que alguém de fato tem. Hoje isso acontece em dois lugares.</p>
+      <p>No Nocker, cuido da tecnologia e do produto de um app de finanças pessoais com IA e Open Finance que já está na <a href="https://play.google.com/store/apps/details?id=com.nocker.app">Play Store</a>. No Bradesco Empresas, troquei planilhas por e-mail e quadros de papel por ferramentas que a equipe da agência usa todo dia, construídas com o Microsoft Copilot.</p>
+      <ul class="links">
+        <li><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></li>
+        <li><a href="https://www.linkedin.com/in/pedroevangelistasantos">LinkedIn</a></li>
+        <li><a href="https://github.com/PeedroSantos">GitHub</a></li>
+      </ul>
     </div>
-  </section>
 
-  <div class="marquee-band">
-    <div class="marquee" aria-hidden="true">
-      <div class="marquee-track">
-        <span>Full-stack</span><span class="o">Mobile</span><span>DevOps</span><span class="o">React</span><span>FastAPI</span><span class="o">Docker</span><span>React Native</span><span class="o">Terraform</span><span>CI/CD</span><span class="o">Supabase</span><span>IA aplicada</span><span class="o">Python</span>
-      </div>
-      <div class="marquee-track">
-        <span>Full-stack</span><span class="o">Mobile</span><span>DevOps</span><span class="o">React</span><span>FastAPI</span><span class="o">Docker</span><span>React Native</span><span class="o">Terraform</span><span>CI/CD</span><span class="o">Supabase</span><span>IA aplicada</span><span class="o">Python</span>
-      </div>
-    </div>
-  </div>
+    <section id="experiencia">
+      <h2>Experiência</h2>
 
-  <section id="sobre" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">01</span><h2>Sobre</h2><span class="sec-line"></span></div>
-      <div class="prose">
-        <p class="r" style="--i:0">Estudante de <strong>Sistemas de Informação</strong> com prática em desenvolvimento full-stack e mobile e em DevOps: interfaces em React e React Native, APIs em FastAPI com Postgres, containers Docker, pipelines de CI/CD e infraestrutura como código com Terraform.</p>
-        <p class="r lead" style="--i:1">No Nocker, atuo como Product Owner e Tech Lead, na arquitetura, no desenvolvimento, em DevOps e em infraestrutura, coordenando o time até o build de publicação. Antes, estágio em DevOps na Landix, com Terraform e CI/CD, e formação técnica em redes de computadores pelo IFTM.</p>
-      </div>
-    </div>
-  </section>
-
-  <section id="nocker" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">02</span><h2>Destaques</h2><span class="sec-line"></span></div>
-      <article class="feature r" style="--i:0">
-        <div class="feature-top">
-          <div class="feature-badges">
-            <span class="badge live">Pré-lançamento · Play Store</span>
-            <span class="badge">Código privado</span>
-            <span class="badge">Product Owner e Tech Lead</span>
-          </div>
-          <h3>Nocker, super-app de finanças pessoais</h3>
-          <p>Desenvolvido por um time de 3 pessoas, com atuação como Product Owner e Tech Lead, na arquitetura, no código e na infraestrutura. Reúne app mobile, API, banco de dados, Open Finance e IA, em pré-lançamento na Play Store.</p>
-        </div>
-        <div class="feature-body">
-          <div>
-            <ul class="hlist">
-              <li><strong>Arquitetura:</strong> app em React Native + Expo, API em FastAPI e banco no Supabase (Postgres).</li>
-              <li><strong>Assistente de IA</strong> para organização financeira, integrado pelo backend com o SDK da Anthropic, sem credenciais expostas no app.</li>
-              <li><strong>Open Finance via Pluggy</strong> e leitura automática de PIX com módulo nativo Android em Kotlin.</li>
-              <li><strong>Autenticação</strong> com JWT próprio e login Google.</li>
-              <li><strong>DevOps:</strong> backend em container Docker no Render, com ambientes separados de desenvolvimento e produção; CI no GitHub Actions com checagem de tipos e testes a cada pull request; fluxo de branches dev e prod com revisão antes do merge.</li>
-              <li><strong>Builds mobile</strong> no EAS, com perfis de desenvolvimento, preview e produção, e configuração de ambiente por perfil.</li>
-              <li><strong>Design system</strong> com temas claro e escuro e contraste conferido pelas diretrizes WCAG.</li>
-              <li><strong>Segurança:</strong> hardening do backend e adequação às políticas da Play Store para permissões sensíveis.</li>
-            </ul>
-          </div>
-          <aside class="sidenote">
-            <p class="label">Stack</p>
-            <div class="tags">
-              <span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">TypeScript</span>
-              <span class="tag">FastAPI</span><span class="tag">Python</span><span class="tag">Supabase / Postgres</span>
-              <span class="tag">Anthropic SDK</span><span class="tag">Pluggy</span><span class="tag">Kotlin</span>
-              <span class="tag">JWT + OAuth</span><span class="tag">Docker</span><span class="tag">Render</span><span class="tag">GitHub Actions</span><span class="tag">EAS</span>
-            </div>
-            <p class="label" style="margin-top:1.3rem;">Papel</p>
-            <p class="body">Product Owner e Tech Lead: arquitetura, desenvolvimento, DevOps e infraestrutura, coordenando um time de 3 pessoas. Repositório privado; demonstração do app sob demanda.</p>
-          </aside>
-        </div>
-      </article>
-
-      <article class="feature r" style="--i:1">
-        <div class="feature-top solo">
-          <div class="feature-badges">
-            <span class="badge live">Competição</span>
-          </div>
-          <h3>Maratona de Programação da Uniube</h3>
-          <p>1º lugar na 18ª Maratona de Programação da Uniube (jun/2026), em dupla com um colega. Algoritmos, estruturas de dados e resolução de problemas sob tempo limitado.</p>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section id="projetos" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">03</span><h2>Projetos</h2><span class="sec-line"></span></div>
-      <div class="grid">
-
-        <div class="card r" style="--i:0">
-          <div class="card-head">
-            <h3>Leaf</h3>
-          </div>
-          <span class="card-kind">Chat em tempo real com IA</span>
-          <span class="card-role">Projeto acadêmico em equipe · <b>Menção Honrosa na MostraTec Uniube 2026</b> (categoria comercial)</span>
-          <span class="card-role"><b>atuação:</b> desenvolvimento e DevOps; responsável pela maior parte da implementação e pelo deploy.</span>
-          <p>Plataforma de conversas em tempo real com assistente de IA integrado, envio de mídia e mensagens agendadas.</p>
-          <div class="tags"><span class="tag">React</span><span class="tag">Python / FastAPI</span><span class="tag">MongoDB Atlas</span><span class="tag">WebSocket</span><span class="tag">Render</span><span class="tag">Vercel</span></div>
-        </div>
-
-        <div class="card r" style="--i:1">
-          <div class="card-head">
-            <h3>Nexus&#8209;Explorer</h3>
-            <span class="card-meta live">demo ao vivo</span>
-          </div>
-          <span class="card-kind">Frontend</span>
-          <span class="card-role">Equipe de 3 · <b>atuação:</b> catálogo, busca/filtros e páginas de planeta</span>
-          <p>SPA de exploração espacial: catálogo de planetas com busca, páginas dinâmicas, acompanhamento de missões e mapa orbital interativo. Projeto final de Programação para Internet na Uniube.</p>
-          <div class="tags"><span class="tag">React 19</span><span class="tag">Vite 6</span><span class="tag">React Router 7</span><span class="tag">CSS Modules</span></div>
-          <div class="card-links">
-            <a class="primary" href="https://peedrosantos.github.io/Nexus-Explorer/" target="_blank" rel="noopener">abrir demo →</a>
-            <a href="https://github.com/PeedroSantos/Nexus-Explorer" target="_blank" rel="noopener">GitHub</a>
-          </div>
-        </div>
-
-      </div>
-      <div class="also r" style="--i:2">
-        <p class="label">Também</p>
-        <ul>
-          <li><strong>NASA Space Apps Challenge:</strong> participação com a equipe Apóstolos da Codificação. Plataforma web de alertas climáticos personalizados com IA para pessoas com problemas respiratórios (React, Python).</li>
-          <li><a href="https://github.com/PeedroSantos/face-warrant" target="_blank" rel="noopener">face-warrant</a>: reconhecimento facial didático em imagem, vídeo e webcam, em equipe (Python, FastAPI, YOLO, DeepFace).</li>
-          <li><a href="https://github.com/PeedroSantos/DueDay" target="_blank" rel="noopener">DueDay</a>: app Android para contas e documentos com vencimento, em equipe (Java, SQLite).</li>
-          <li><a href="https://github.com/PeedroSantos/java-padroes-de-projeto-na-pratica" target="_blank" rel="noopener">Padrões de projeto em Java</a> e experimentos anteriores de visão computacional.</li>
+      <article class="job">
+        <div class="job-head"><h3>Venturi Holding</h3><span class="when">ago/2026 – hoje</span></div>
+        <p class="where">Diretor de Projetos e Sócio de Projetos · Nocker, como Tech Lead e Product Owner · remoto</p>
+        <ul class="points">
+          <li>Coordeno um time de 3 desenvolvedores pelo ClickUp e decido com a fundadora escopo, prioridades, planos e preço. Levamos o app da base inicial até a Play Store, com assinatura pela Google Play e Open Finance real pela Pluggy.</li>
+          <li>Fiz a NIA, a assistente financeira do app, ligada ao backend pelo SDK da Anthropic. Ela só fala de organização financeira, nunca recomenda investimento, tem limite diário de mensagens por plano e um teste automático que impede trocar o modelo sem querer, porque o preço de cada plano depende do custo dele. Antes de escolher, comparei o Claude Haiku com o Sabiazinho num teste A/B.</li>
+          <li>A leitura de nota fiscal usa IA com visão, tem OCR de reserva e pede consentimento específico antes de enviar a foto.</li>
+          <li>Programo com o Claude Code no dia a dia, com as regras do projeto, ADRs e memória escritas para ele ler. Montei um fluxo de 7 agentes que planejam, implementam, avaliam e revisam o trabalho uns dos outros, com acesso de leitura ao banco por MCP, GitHub e ClickUp.</li>
+          <li>Cuido do backend em Docker no Render, da CI que roda tipos e testes em todo pull request, do fluxo dev/prod com revisão antes do merge, dos builds Android e atualizações OTA pelo EAS e dos erros no Sentry.</li>
+          <li>Na parte de LGPD: consentimento, versão dos Termos, exclusão de conta e dados sensíveis fora do alcance dos modelos de IA.</li>
+          <li>Também participo do Nocker Business, versão web para empresas com setores, aprovações e orçamentos. Ainda em desenvolvimento.</li>
         </ul>
-      </div>
-    </div>
-  </section>
+        <p class="stack">React Native, Expo, TypeScript, Python/FastAPI, Supabase (Postgres), Kotlin, Anthropic SDK</p>
+      </article>
 
-  <section id="experiencia" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">04</span><h2>Experiência</h2><span class="sec-line"></span></div>
-      <div class="exp">
-        <div class="exp-item r" style="--i:0">
-          <div class="exp-period">08/2026 – atual</div>
-          <div class="exp-body">
-            <div class="exp-top"><h3>Venturi Holding</h3><span class="exp-role">Product Owner e Tech Lead (Nocker)</span></div>
-            <p>Product Owner e Tech Lead do Nocker, app de finanças pessoais em pré-lançamento na Play Store. Também atuo na arquitetura, no desenvolvimento, em DevOps e em infraestrutura, coordenando um time de 3 pessoas até o build de publicação.</p>
-            <div class="tags"><span class="tag">React Native</span><span class="tag">FastAPI</span><span class="tag">Supabase / Postgres</span><span class="tag">Docker</span><span class="tag">GitHub Actions</span><span class="tag">Kotlin</span><span class="tag">Anthropic SDK</span></div>
-          </div>
-        </div>
-        <div class="exp-item r" style="--i:1">
-          <div class="exp-period">05/2025 – atual</div>
-          <div class="exp-body">
-            <div class="exp-top"><h3>Bradesco</h3><span class="exp-role">Estagiário · Bradesco Empresas</span></div>
-            <p>Suporte à gestão da agência 1258 no controle operacional e no acompanhamento de indicadores, com apoio às demandas comerciais. Elaboração de controles em Excel e análise de resultados para organizar as rotinas do time.</p>
-            <div class="tags"><span class="tag">Excel</span><span class="tag">Indicadores</span><span class="tag">Operações</span></div>
-          </div>
-        </div>
-        <div class="exp-item r" style="--i:2">
-          <div class="exp-period">03/2024 – 05/2025</div>
-          <div class="exp-body">
-            <div class="exp-top"><h3>Landix Sistemas</h3><span class="exp-role">Estagiário de DevOps e Infraestrutura</span></div>
-            <p>Manutenção da infraestrutura de aplicações em nuvem, automação de provisionamento com Terraform e suporte ao pipeline de CI/CD, além da gestão de máquinas e equipamentos do time.</p>
-            <div class="tags"><span class="tag">Terraform</span><span class="tag">CI/CD</span><span class="tag">Cloud</span><span class="tag">Infra</span></div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <article class="job">
+        <div class="job-head"><h3>Bradesco Empresas</h3><span class="when">mai/2025 – hoje</span></div>
+        <p class="where">Estagiário · Agência 1258 · Uberlândia</p>
+        <p>Apoio a gestão de metas e a operação comercial da agência. A gerência traz o problema, eu monto a primeira versão no Excel com o Microsoft Copilot que o banco disponibiliza, e a ferramenta melhora conforme a equipe usa.</p>
+        <ul class="points">
+          <li>As planilhas que iam e voltavam por e-mail para alguém juntar à mão viraram arquivos compartilhados no OneDrive, editados por todos ao mesmo tempo.</li>
+          <li>O quadro físico de visitas virou uma agenda em Excel, uma aba por gerente. As agendas dos especialistas da agência e da matriz se preenchem a partir dos lançamentos dos gerentes, o que evita dois compromissos no mesmo horário e conta as visitas por dia, semana e mês.</li>
+          <li>Um controle das demandas dos assistentes separa os pedidos por origem (gerentes, clientes pelo chat corporativo ou tarefas recorrentes) e resume por semana, mês e gerente para a gerência geral.</li>
+          <li>As metas da agência saíram das anotações diárias: há uma planilha por carteira PF e PJ e uma central que junta metas e produção, mostra resultado por segmento e ranking por indicador.</li>
+        </ul>
+      </article>
 
-  <section id="stack" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">05</span><h2>Stack</h2><span class="sec-line"></span></div>
-      <div class="stack-grid">
-        <div class="stack-group r" style="--i:0">
-          <p class="label">Linguagens</p>
-          <div class="tags"><span class="tag">TypeScript</span><span class="tag">JavaScript</span><span class="tag">Python</span><span class="tag">Java</span><span class="tag">Kotlin</span><span class="tag">SQL</span></div>
-        </div>
-        <div class="stack-group r" style="--i:1">
-          <p class="label">Frontend &amp; Mobile</p>
-          <div class="tags"><span class="tag">React</span><span class="tag">React Native</span><span class="tag">Expo</span><span class="tag">Vite</span><span class="tag">Android / Java</span></div>
-        </div>
-        <div class="stack-group r" style="--i:2">
-          <p class="label">Backend</p>
-          <div class="tags"><span class="tag">FastAPI</span><span class="tag">APIs REST</span><span class="tag">JWT / OAuth</span><span class="tag">Node</span></div>
-        </div>
-        <div class="stack-group r" style="--i:3">
-          <p class="label">Dados &amp; IA</p>
-          <div class="tags"><span class="tag">Supabase / Postgres</span><span class="tag">SQLite</span><span class="tag">Anthropic SDK</span><span class="tag">YOLO</span><span class="tag">DeepFace</span></div>
-        </div>
-        <div class="stack-group r" style="--i:4">
-          <p class="label">DevOps &amp; infraestrutura</p>
-          <div class="tags"><span class="tag">Docker</span><span class="tag">Terraform</span><span class="tag">CI/CD</span><span class="tag">GitHub Actions</span><span class="tag">Render</span><span class="tag">EAS</span><span class="tag">Cloud</span><span class="tag">Git / GitHub</span><span class="tag">Redes de computadores</span></div>
-        </div>
-      </div>
-    </div>
-  </section>
+      <article class="job">
+        <div class="job-head"><h3>Landix Sistemas</h3><span class="when">mar/2024 – mai/2025</span></div>
+        <p class="where">Estagiário de DevOps e Infraestrutura · remoto</p>
+        <ul class="points">
+          <li>Manutenção da infraestrutura de aplicações em nuvem, provisionamento com Terraform e apoio aos pipelines de CI/CD.</li>
+        </ul>
+      </article>
+    </section>
 
-  <section id="formacao" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">06</span><h2>Formação</h2><span class="sec-line"></span></div>
-      <div class="edu">
-        <div class="edu-row r" style="--i:0">
-          <div>
-            <div class="t">Bacharelado em Sistemas de Informação</div>
-            <div class="s">Universidade de Uberaba (Uniube)</div>
-          </div>
-          <div class="when">conclusão prevista · dez/2027</div>
-        </div>
-        <div class="edu-row r" style="--i:1">
-          <div>
-            <div class="t">Técnico em Redes de Computadores</div>
-            <div class="s">Instituto Federal do Triângulo Mineiro (IFTM)</div>
-          </div>
-          <div class="when">concluído · dez/2022</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="projetos">
+      <h2>Projetos</h2>
+      <ul class="plain">
+        <li>
+          <strong>Leaf</strong>, chat em tempo real com IA
+          <span class="meta">Projeto acadêmico em equipe · Menção Honrosa na MostraTec Uniube 2026</span>
+          Fiz a maior parte da implementação e o deploy. A assistente envia e agenda mensagens, só depois que a pessoa confirma, e aceita voz. Migrei a integração de IA do Gemini para o Claude. React, FastAPI, MongoDB Atlas, WebSocket, Render e Vercel.
+        </li>
+        <li>
+          <strong>Maratona de Programação da Uniube</strong>
+          <span class="meta">jun/2026</span>
+          1º lugar na 18ª edição, em dupla.
+        </li>
+        <li>
+          <strong><a href="https://peedrosantos.github.io/Nexus-Explorer/">Nexus-Explorer</a></strong>
+          <span class="meta">Equipe de 3 · <a href="https://github.com/PeedroSantos/Nexus-Explorer">código</a></span>
+          SPA de exploração espacial feita na disciplina de Programação para Internet. Fiquei com o catálogo, a busca e os filtros e as páginas de planeta. React 19 e Vite.
+        </li>
+        <li>
+          <strong>Outros</strong>
+          <span class="meta">NASA Space Apps Challenge · <a href="https://github.com/PeedroSantos/face-warrant">face-warrant</a> · <a href="https://github.com/PeedroSantos/DueDay">DueDay</a></span>
+          No Space Apps, com a equipe Apóstolos da Codificação, uma plataforma de alertas climáticos com IA para quem tem problema respiratório. O face-warrant é reconhecimento facial didático em Python. O DueDay é um app Android de contas com vencimento, em Java e SQLite.
+        </li>
+      </ul>
+    </section>
 
-  <section id="certificacoes" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">07</span><h2>Certificações</h2><span class="sec-line"></span></div>
-      <div class="edu">
-        <div class="edu-row r" style="--i:0">
-          <div>
-            <div class="t">CEA, Certificação Anbima de Especialistas em Investimento</div>
-            <div class="s">Anbima</div>
-          </div>
-          <div class="when">jul/2025 · válida até jul/2028</div>
-        </div>
-        <div class="edu-row r" style="--i:1">
-          <div>
-            <div class="t">NLW Journey DevOps</div>
-            <div class="s">Rocketseat</div>
-          </div>
-          <div class="when">jul/2024</div>
-        </div>
-        <div class="edu-row r" style="--i:2">
-          <div>
-            <div class="t">AWS na Prática</div>
-            <div class="s">Udemy</div>
-          </div>
-          <div class="when">38,5h</div>
-        </div>
-        <div class="edu-row r" style="--i:3">
-          <div>
-            <div class="t">Bootcamp Orange Tech+ Back End</div>
-            <div class="s">DIO</div>
-          </div>
-          <div class="when">87h</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <section id="habilidades">
+      <h2>Ferramentas e conhecimentos</h2>
+      <dl class="skills">
+        <div><dt>IA</dt><dd>Claude Code, ChatGPT, Gemini, Microsoft Copilot, Anthropic SDK, IA com visão, agentes e MCP, prompts e contexto, automação de processos</dd></div>
+        <div><dt>Produto e negócio</dt><dd>Product Ownership, coordenação de time, metas e indicadores comerciais, levantamento de necessidades, Excel</dd></div>
+        <div><dt>Desenvolvimento</dt><dd>TypeScript, JavaScript, Python, Kotlin, Java, SQL, React, React Native, Expo, FastAPI, APIs REST, JWT/OAuth</dd></div>
+        <div><dt>Dados e infraestrutura</dt><dd>PostgreSQL/Supabase, MongoDB, Docker, Terraform, GitHub Actions, CI/CD, AWS, Render, Linux</dd></div>
+        <div><dt>Idiomas</dt><dd>Inglês técnico para leitura</dd></div>
+      </dl>
+    </section>
 
-  <section id="contato" class="rv">
-    <div class="wrap">
-      <div class="sec-head"><span class="sec-index">08</span><h2>Contato</h2><span class="sec-line"></span></div>
-      <p class="foot-cta r" style="--i:0">Aberto a novos projetos e oportunidades.</p>
-      <div class="contact-grid">
-        <a class="contact-card r" href="https://wa.me/5534998365726" target="_blank" rel="noopener" style="--i:1">
-          <span class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.02c-.24.68-1.4 1.3-1.94 1.35-.5.05-1.12.07-1.8-.11-.42-.13-.95-.31-1.63-.6-2.87-1.24-4.74-4.13-4.88-4.32-.14-.19-1.17-1.56-1.17-2.97 0-1.41.74-2.11 1-2.4.26-.29.57-.36.76-.36.19 0 .38 0 .55.01.18.01.41-.07.65.5.24.57.82 1.98.89 2.12.07.14.12.31.02.5-.09.19-.14.31-.28.48-.14.17-.29.37-.42.5-.14.14-.28.29-.12.57.16.28.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.44.12.6-.07.16-.19.69-.8.88-1.08.19-.28.37-.23.63-.14.26.09 1.65.78 1.93.92.28.14.47.21.54.33.07.12.07.68-.17 1.36z"/></svg></span>
-          <span><span class="k">WhatsApp</span><span class="v">(34) 9 9836-5726</span></span>
-        </a>
-        <a class="contact-card r" href="mailto:pedro.evang.santos@gmail.com" style="--i:2">
-          <span class="contact-ico"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 6 10 7L22 6"/></svg></span>
-          <span><span class="k">Email</span><span class="v">pedro.evang.santos@gmail.com</span></span>
-        </a>
-        <a class="contact-card r" href="https://www.linkedin.com/in/pedroevangelistasantos" target="_blank" rel="noopener" style="--i:3">
-          <span class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M4.98 3.5A2.5 2.5 0 1 1 0 3.5a2.5 2.5 0 0 1 4.98 0zM.2 8.3h4.56V24H.2zM8.3 8.3h4.37v2.14h.06c.61-1.15 2.1-2.37 4.32-2.37 4.62 0 5.47 3.04 5.47 7v8.93h-4.56v-7.92c0-1.89-.03-4.32-2.63-4.32-2.63 0-3.03 2.06-3.03 4.18V24H8.3z"/></svg></span>
-          <span><span class="k">LinkedIn</span><span class="v">in/pedroevangelistasantos</span></span>
-        </a>
-        <a class="contact-card r" href="https://github.com/PeedroSantos" target="_blank" rel="noopener" style="--i:4">
-          <span class="contact-ico"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 1.5a10.5 10.5 0 0 0-3.32 20.47c.52.1.71-.23.71-.5v-1.76c-2.89.63-3.5-1.39-3.5-1.39-.47-1.2-1.15-1.52-1.15-1.52-.94-.64.07-.63.07-.63 1.04.07 1.59 1.07 1.59 1.07.93 1.59 2.44 1.13 3.03.86.09-.67.36-1.13.66-1.39-2.31-.26-4.74-1.16-4.74-5.14 0-1.13.4-2.06 1.07-2.79-.11-.26-.46-1.32.1-2.75 0 0 .87-.28 2.85 1.07a9.9 9.9 0 0 1 5.19 0c1.98-1.35 2.85-1.07 2.85-1.07.56 1.43.21 2.49.1 2.75.67.73 1.07 1.66 1.07 2.79 0 3.99-2.43 4.87-4.75 5.13.37.32.7.95.7 1.92v2.85c0 .28.19.61.72.5A10.5 10.5 0 0 0 12 1.5z"/></svg></span>
-          <span><span class="k">GitHub</span><span class="v">github.com/PeedroSantos</span></span>
-        </a>
-      </div>
-    </div>
-  </section>
-</main>
+    <section id="formacao">
+      <h2>Formação e certificações</h2>
+      <ul class="plain">
+        <li><strong>Sistemas de Informação</strong>, Universidade de Uberaba (Uniube)<span class="meta">6º período · conclusão prevista para dez/2027</span></li>
+        <li><strong>Técnico em Redes de Computadores</strong>, IFTM<span class="meta">2022</span></li>
+        <li><strong>CEA</strong>, Certificação ANBIMA de Especialistas em Investimento<span class="meta">jul/2025, válida até jul/2028</span></li>
+        <li><strong>Cursos</strong><span class="meta">NLW Journey DevOps (Rocketseat, 2024) · AWS na Prática (Udemy, 38,5h) · Bootcamp Orange Tech+ Back End (DIO, 87h)</span></li>
+      </ul>
+    </section>
 
-<footer>
-  <div class="wrap">
-    <p class="foot-note"><span>Pedro Evangelista Santos · Uberlândia/MG</span><span>Página única, sem framework. HTML e CSS.</span></p>
-  </div>
-</footer>
+    <section id="contato">
+      <h2>Contato</h2>
+      <p>O jeito mais rápido é por e-mail, <a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a>, ou pelo WhatsApp, <a href="https://wa.me/5534998365726">(34) 9 9836-5726</a>. Posso mostrar o Nocker funcionando numa conversa.</p>
+    </section>
+  </main>
+
+  <footer>Pedro Evangelista Santos · atualizado em novembro de 2026</footer>
+</div>
 
 <script>
-  document.documentElement.classList.add("js");
   (function () {
     var root = document.documentElement;
-    var btn = document.getElementById("themeToggle");
-    try {
-      if (localStorage.getItem("pes-theme") === "light") root.setAttribute("data-theme", "light");
-    } catch (e) {}
-    btn.addEventListener("click", function () {
-      var light = root.getAttribute("data-theme") === "light";
-      if (light) root.removeAttribute("data-theme"); else root.setAttribute("data-theme", "light");
-      try { localStorage.setItem("pes-theme", light ? "dark" : "light"); } catch (e) {}
+    try { var t = localStorage.getItem("pes-theme"); if (t === "light" || t === "dark") root.setAttribute("data-theme", t); } catch (e) {}
+    document.getElementById("theme").addEventListener("click", function () {
+      var dark = root.getAttribute("data-theme") === "dark" ||
+        (!root.getAttribute("data-theme") && window.matchMedia("(prefers-color-scheme: dark)").matches);
+      var next = dark ? "light" : "dark";
+      root.setAttribute("data-theme", next);
+      try { localStorage.setItem("pes-theme", next); } catch (e) {}
     });
-
-    var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    var sections = document.querySelectorAll(".rv");
-    if (reduce || !("IntersectionObserver" in window)) {
-      sections.forEach(function (el) { el.classList.add("in"); });
-      return;
-    }
-    var io = new IntersectionObserver(function (entries) {
-      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-    }, { rootMargin: "0px 0px -10% 0px", threshold: 0.12 });
-    sections.forEach(function (el) { io.observe(el); });
   })();
 </script>
 </body>
