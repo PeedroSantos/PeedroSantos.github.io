@@ -4,10 +4,10 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pedro Evangelista Santos</title>
-<meta name="description" content="Pedro Evangelista Santos. Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store. Estagiário no Bradesco Empresas. Uberlândia/MG.">
+<meta name="description" content="Pedro Evangelista Santos. Soluções e produtos com IA generativa. Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store. Estagiário no Bradesco Empresas.">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Pedro Evangelista Santos">
-<meta property="og:description" content="Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store. Estagiário no Bradesco Empresas.">
+<meta property="og:description" content="Soluções e produtos com IA generativa. Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store.">
 <meta property="og:url" content="https://peedrosantos.github.io/">
 <meta property="og:locale" content="pt_BR">
 <meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
@@ -17,13 +17,9 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
 <style>
-  /* Hallmark · macrostructure: Long Document · tone: austere · anchor hue: 255 (azul-tinta)
-   * nav: N1a · footer: Ft1 · enrichment: none (typography only)
-   * pre-emit critique: P4 H4 E4 S5 R5 V4
-   */
   :root {
     --paper: oklch(96.5% 0.004 120);
-    --paper-2: oklch(93% 0.005 120);
+    --paper-2: oklch(99% 0.002 120);
     --ink: oklch(22% 0.01 250);
     --ink-2: oklch(42% 0.012 250);
     --ink-3: oklch(55% 0.01 250);
@@ -42,8 +38,7 @@
 
     --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 1rem;
     --space-lg: 1.5rem; --space-xl: 2.5rem; --space-2xl: 4rem;
-    --measure: 40rem;
-    --ease-out: cubic-bezier(.22, .61, .36, 1);
+    --measure: 42rem;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
@@ -90,11 +85,18 @@
   .theme:hover { color: var(--ink); text-decoration: underline; }
 
   h1, h2, h3 { font-family: var(--font-display); font-weight: 600; font-style: normal; color: var(--ink); text-wrap: balance; }
-  h1 { font-size: var(--text-3); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 var(--space-md); overflow-wrap: anywhere; min-width: 0; }
+  h1 { font-size: var(--text-3); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 var(--space-sm); overflow-wrap: anywhere; min-width: 0; }
   .role { font-size: var(--text-1); color: var(--ink-2); margin: 0 0 var(--space-lg); }
   .intro p { margin: 0 0 var(--space-md); }
   .links { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); margin: var(--space-lg) 0 0; padding: 0; list-style: none; font-size: var(--text-s); }
   .links a { white-space: nowrap; }
+
+  .highlight { margin-top: var(--space-xl); padding: var(--space-lg); background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; }
+  .highlight h2 { border: 0; padding: 0; margin: 0 0 var(--space-xs); }
+  .highlight .sub { font-size: var(--text-s); color: var(--ink-2); margin: 0 0 var(--space-md); }
+  .highlight p { margin: 0 0 var(--space-md); }
+  .highlight p:last-child { margin-bottom: 0; }
+  .store { font-weight: 600; white-space: nowrap; }
 
   section { margin-top: var(--space-2xl); }
   h2 { font-size: var(--text-2); line-height: 1.2; margin: 0 0 var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--rule); }
@@ -124,6 +126,7 @@
 
   @media (max-width: 480px) {
     .top { flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-xl); }
+    .highlight { padding: var(--space-md); }
   }
   @media print {
     .top nav, .theme { display: none; }
@@ -137,8 +140,8 @@
   <header class="top">
     <span>Uberlândia, MG</span>
     <nav aria-label="Seções">
+      <a href="#nocker">Nocker</a>
       <a href="#experiencia">Experiência</a>
-      <a href="#projetos">Projetos</a>
       <a href="#contato">Contato</a>
       <button class="theme" id="theme" type="button">Tema</button>
     </nav>
@@ -147,9 +150,8 @@
   <main>
     <div class="intro">
       <h1>Pedro Evangelista Santos</h1>
-      <p class="role">Tech Lead e Product Owner do Nocker · Estagiário no Bradesco Empresas</p>
-      <p>Estudo Sistemas de Informação na Uniube (6º período) e uso IA para resolver problemas que alguém de fato tem. Hoje isso acontece em dois lugares.</p>
-      <p>No Nocker, cuido da tecnologia e do produto de um app de finanças pessoais com IA e Open Finance que já está na <a href="https://play.google.com/store/apps/details?id=com.nocker.app">Play Store</a>. No Bradesco Empresas, troquei planilhas por e-mail e quadros de papel por ferramentas que a equipe da agência usa todo dia, construídas com o Microsoft Copilot.</p>
+      <p class="role">Soluções e produtos com IA generativa · Tech Lead e Product Owner</p>
+      <p>Estudante de Sistemas de Informação (6º período, Uniube), com foco no uso de IA para transformar problemas reais em soluções utilizadas no dia a dia. Liderança de tecnologia e produto do Nocker, aplicativo de finanças pessoais com IA e Open Finance publicado na Play Store, e substituição de processos manuais da área comercial do Bradesco Empresas por ferramentas construídas com Microsoft Copilot. Uso de Claude Code, ChatGPT, Gemini e Copilot no desenvolvimento de soluções.</p>
       <ul class="links">
         <li><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></li>
         <li><a href="https://www.linkedin.com/in/pedroevangelistasantos">LinkedIn</a></li>
@@ -157,99 +159,86 @@
       </ul>
     </div>
 
+    <aside class="highlight" id="nocker">
+      <h2>Nocker</h2>
+      <p class="sub">Aplicativo de finanças pessoais com IA e Open Finance · Tech Lead e Product Owner</p>
+      <p>Publicado na Play Store, com assinatura pela Google Play, Open Finance real via Pluggy e a NIA, assistente financeira integrada ao backend pelo SDK da Anthropic.</p>
+      <p><a class="store" href="https://play.google.com/store/apps/details?id=com.nocker.app">Ver o Nocker na Play Store</a></p>
+    </aside>
+
     <section id="experiencia">
       <h2>Experiência</h2>
 
       <article class="job">
-        <div class="job-head"><h3>Venturi Holding</h3><span class="when">ago/2026 – hoje</span></div>
-        <p class="where">Diretor de Projetos e Sócio de Projetos · Nocker, como Tech Lead e Product Owner · remoto</p>
+        <div class="job-head"><h3>Venturi Holding</h3><span class="when">08/2026 – atual</span></div>
+        <p class="where">Diretor de Projetos e Sócio de Projetos · Nocker, Tech Lead e Product Owner · Remoto</p>
         <ul class="points">
-          <li>Coordeno um time de 3 desenvolvedores pelo ClickUp e decido com a fundadora escopo, prioridades, planos e preço. Levamos o app da base inicial até a Play Store, com assinatura pela Google Play e Open Finance real pela Pluggy.</li>
-          <li>Fiz a NIA, a assistente financeira do app, ligada ao backend pelo SDK da Anthropic. Ela só fala de organização financeira, nunca recomenda investimento, tem limite diário de mensagens por plano e um teste automático que impede trocar o modelo sem querer, porque o preço de cada plano depende do custo dele. Antes de escolher, comparei o Claude Haiku com o Sabiazinho num teste A/B.</li>
-          <li>A leitura de nota fiscal usa IA com visão, tem OCR de reserva e pede consentimento específico antes de enviar a foto.</li>
-          <li>Programo com o Claude Code no dia a dia, com as regras do projeto, ADRs e memória escritas para ele ler. Montei um fluxo de 7 agentes que planejam, implementam, avaliam e revisam o trabalho uns dos outros, com acesso de leitura ao banco por MCP, GitHub e ClickUp.</li>
-          <li>Cuido do backend em Docker no Render, da CI que roda tipos e testes em todo pull request, do fluxo dev/prod com revisão antes do merge, dos builds Android e atualizações OTA pelo EAS e dos erros no Sentry.</li>
-          <li>Na parte de LGPD: consentimento, versão dos Termos, exclusão de conta e dados sensíveis fora do alcance dos modelos de IA.</li>
-          <li>Também participo do Nocker Business, versão web para empresas com setores, aprovações e orçamentos. Ainda em desenvolvimento.</li>
+          <li>Coordenação de um time de 3 desenvolvedores e definição de escopo, prioridades e planos com a fundadora.</li>
+          <li>Condução do aplicativo da base inicial à publicação na Play Store, com assinatura pela Google Play e Open Finance real via Pluggy.</li>
+          <li>IA no produto: desenvolvimento da NIA, assistente financeira integrada ao backend pelo SDK da Anthropic, com escopo delimitado à organização financeira e sem recomendações de investimento.</li>
+          <li>Implementação de leitura de notas fiscais com IA multimodal (visão), com OCR de reserva e consentimento específico do usuário para envio das imagens.</li>
+          <li>Desenvolvimento assistido por IA: Claude Code como principal ferramenta, com contexto estruturado por documentação de regras do projeto, ADRs e memória. Estruturação de um fluxo próprio de 7 agentes para planejamento, implementação, avaliação e revisão adversarial, integrados ao banco de dados via MCP somente leitura, GitHub e ClickUp.</li>
+          <li>DevOps: gestão da hospedagem do backend em Docker no Render, CI com verificação de tipos e testes a cada pull request, fluxo dev/prod com revisão antes do merge, builds Android e atualizações OTA pelo EAS e monitoramento de erros com Sentry.</li>
+          <li>Aplicação de práticas de LGPD no produto: consentimento, versionamento de Termos, exclusão de conta e proteção de dados sensíveis contra acesso dos modelos de IA.</li>
+          <li>Nocker Business: participação no desenvolvimento da versão web para empresas, com gestão por setores, aprovações e orçamentos (em desenvolvimento).</li>
         </ul>
-        <p class="stack">React Native, Expo, TypeScript, Python/FastAPI, Supabase (Postgres), Kotlin, Anthropic SDK</p>
+        <p class="stack">Stack: React Native, Expo, TypeScript, Python/FastAPI, Supabase (Postgres), Kotlin.</p>
       </article>
 
       <article class="job">
-        <div class="job-head"><h3>Bradesco Empresas</h3><span class="when">mai/2025 – hoje</span></div>
+        <div class="job-head"><h3>Bradesco Empresas</h3><span class="when">05/2025 – atual</span></div>
         <p class="where">Estagiário · Agência 1258 · Uberlândia</p>
-        <p>Apoio a gestão de metas e a operação comercial da agência. A gerência traz o problema, eu monto a primeira versão no Excel com o Microsoft Copilot que o banco disponibiliza, e a ferramenta melhora conforme a equipe usa.</p>
+        <p>Apoio à gestão de metas e à operação comercial da agência, com construção e automação de planilhas no Excel (fórmulas e funções) usando o Microsoft Copilot, a partir das necessidades levantadas pela gerência.</p>
         <ul class="points">
-          <li>As planilhas que iam e voltavam por e-mail para alguém juntar à mão viraram arquivos compartilhados no OneDrive, editados por todos ao mesmo tempo.</li>
-          <li>O quadro físico de visitas virou uma agenda em Excel, uma aba por gerente. As agendas dos especialistas da agência e da matriz se preenchem a partir dos lançamentos dos gerentes, o que evita dois compromissos no mesmo horário e conta as visitas por dia, semana e mês.</li>
-          <li>Um controle das demandas dos assistentes separa os pedidos por origem (gerentes, clientes pelo chat corporativo ou tarefas recorrentes) e resume por semana, mês e gerente para a gerência geral.</li>
-          <li>As metas da agência saíram das anotações diárias: há uma planilha por carteira PF e PJ e uma central que junta metas e produção, mostra resultado por segmento e ranking por indicador.</li>
+          <li>Substituição do quadro físico de visitas a clientes por uma agenda automatizada em Excel, com uma aba por gerente. Agendas de especialistas presenciais e da matriz (online) preenchidas a partir dos lançamentos dos gerentes, evitando conflitos de horário e consolidando a quantidade de visitas por dia, semana e mês.</li>
+          <li>Criação de um controle de demandas dos assistentes que classifica solicitações por origem (gerentes, clientes via chat corporativo ou tarefas recorrentes) e consolida informações por semana, mês e gerente para acompanhamento da gerência geral.</li>
+          <li>Estruturação do acompanhamento das metas da agência: planilhas individuais para carteiras PF e PJ e uma central que consolida metas e produção, com resultados por segmento e ranking por indicador, no lugar das anotações diárias manuais.</li>
         </ul>
       </article>
 
       <article class="job">
-        <div class="job-head"><h3>Landix Sistemas</h3><span class="when">mar/2024 – mai/2025</span></div>
-        <p class="where">Estagiário de DevOps e Infraestrutura · remoto</p>
+        <div class="job-head"><h3>Landix Sistemas</h3><span class="when">03/2024 – 05/2025</span></div>
+        <p class="where">Estagiário de DevOps e Infraestrutura · Remoto</p>
         <ul class="points">
-          <li>Manutenção da infraestrutura de aplicações em nuvem, provisionamento com Terraform e apoio aos pipelines de CI/CD.</li>
+          <li>Manutenção de infraestrutura de aplicações em nuvem e automação de provisionamento com Terraform.</li>
+          <li>Apoio à manutenção de pipelines de CI/CD.</li>
+          <li>Suporte técnico e de infraestrutura aos colaboradores.</li>
         </ul>
       </article>
-    </section>
-
-    <section id="projetos">
-      <h2>Projetos</h2>
-      <ul class="plain">
-        <li>
-          <strong>Leaf</strong>, chat em tempo real com IA
-          <span class="meta">Projeto acadêmico em equipe · Menção Honrosa na MostraTec Uniube 2026</span>
-          Fiz a maior parte da implementação e o deploy. A assistente envia e agenda mensagens, só depois que a pessoa confirma, e aceita voz. Migrei a integração de IA do Gemini para o Claude. React, FastAPI, MongoDB Atlas, WebSocket, Render e Vercel.
-        </li>
-        <li>
-          <strong>Maratona de Programação da Uniube</strong>
-          <span class="meta">jun/2026</span>
-          1º lugar na 18ª edição, em dupla.
-        </li>
-        <li>
-          <strong><a href="https://peedrosantos.github.io/Nexus-Explorer/">Nexus-Explorer</a></strong>
-          <span class="meta">Equipe de 3 · <a href="https://github.com/PeedroSantos/Nexus-Explorer">código</a></span>
-          SPA de exploração espacial feita na disciplina de Programação para Internet. Fiquei com o catálogo, a busca e os filtros e as páginas de planeta. React 19 e Vite.
-        </li>
-        <li>
-          <strong>Outros</strong>
-          <span class="meta">NASA Space Apps Challenge · <a href="https://github.com/PeedroSantos/face-warrant">face-warrant</a> · <a href="https://github.com/PeedroSantos/DueDay">DueDay</a></span>
-          No Space Apps, com a equipe Apóstolos da Codificação, uma plataforma de alertas climáticos com IA para quem tem problema respiratório. O face-warrant é reconhecimento facial didático em Python. O DueDay é um app Android de contas com vencimento, em Java e SQLite.
-        </li>
-      </ul>
     </section>
 
     <section id="habilidades">
-      <h2>Ferramentas e conhecimentos</h2>
+      <h2>Habilidades</h2>
       <dl class="skills">
-        <div><dt>IA</dt><dd>Claude Code, ChatGPT, Gemini, Microsoft Copilot, Anthropic SDK, IA com visão, agentes e MCP, prompts e contexto, automação de processos</dd></div>
-        <div><dt>Produto e negócio</dt><dd>Product Ownership, coordenação de time, metas e indicadores comerciais, levantamento de necessidades, Excel</dd></div>
-        <div><dt>Desenvolvimento</dt><dd>TypeScript, JavaScript, Python, Kotlin, Java, SQL, React, React Native, Expo, FastAPI, APIs REST, JWT/OAuth</dd></div>
-        <div><dt>Dados e infraestrutura</dt><dd>PostgreSQL/Supabase, MongoDB, Docker, Terraform, GitHub Actions, CI/CD, AWS, Render, Linux</dd></div>
-        <div><dt>Idiomas</dt><dd>Inglês técnico para leitura</dd></div>
+        <div><dt>Inteligência Artificial</dt><dd>Claude Code, ChatGPT, Gemini, Microsoft Copilot, integração de LLMs, IA multimodal, agentes e MCP, engenharia de prompts e contexto, automação de processos com IA.</dd></div>
+        <div><dt>Negócios e produtos</dt><dd>Product Ownership, liderança de equipes, gestão de metas e indicadores comerciais, levantamento de necessidades e Excel avançado.</dd></div>
+        <div><dt>Desenvolvimento</dt><dd>TypeScript, JavaScript, Python, Kotlin, Java, SQL, React, React Native, Expo, FastAPI, APIs REST e JWT/OAuth.</dd></div>
+        <div><dt>Dados e infraestrutura</dt><dd>PostgreSQL/Supabase, MongoDB, Docker, Terraform, GitHub Actions, CI/CD, AWS, Render e Linux.</dd></div>
+        <div><dt>Idiomas</dt><dd>Inglês técnico para leitura.</dd></div>
       </dl>
     </section>
 
     <section id="formacao">
       <h2>Formação e certificações</h2>
       <ul class="plain">
-        <li><strong>Sistemas de Informação</strong>, Universidade de Uberaba (Uniube)<span class="meta">6º período · conclusão prevista para dez/2027</span></li>
-        <li><strong>Técnico em Redes de Computadores</strong>, IFTM<span class="meta">2022</span></li>
-        <li><strong>CEA</strong>, Certificação ANBIMA de Especialistas em Investimento<span class="meta">jul/2025, válida até jul/2028</span></li>
-        <li><strong>Cursos</strong><span class="meta">NLW Journey DevOps (Rocketseat, 2024) · AWS na Prática (Udemy, 38,5h) · Bootcamp Orange Tech+ Back End (DIO, 87h)</span></li>
+        <li><strong>Bacharelado em Sistemas de Informação</strong>, Universidade de Uberaba (Uniube)<span class="meta">6º período · previsão de conclusão: dezembro de 2027</span></li>
+        <li><strong>Técnico em Redes de Computadores</strong>, Instituto Federal do Triângulo Mineiro (IFTM)<span class="meta">2022</span></li>
+        <li><strong>CEA</strong>, Certificação ANBIMA de Especialistas em Investimento<span class="meta">07/2025 – 07/2028</span></li>
+        <li><strong>Cursos</strong><span class="meta">AWS na Prática (Udemy, 38,5h) · Bootcamp Orange Tech+ Back End (DIO, 87h)</span></li>
       </ul>
     </section>
 
     <section id="contato">
       <h2>Contato</h2>
-      <p>O jeito mais rápido é por e-mail, <a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a>, ou pelo WhatsApp, <a href="https://wa.me/5534998365726">(34) 9 9836-5726</a>. Posso mostrar o Nocker funcionando numa conversa.</p>
+      <ul class="plain">
+        <li><strong>E-mail</strong><span class="meta"><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></span></li>
+        <li><strong>WhatsApp</strong><span class="meta"><a href="https://wa.me/5534998365726">(34) 9 9836-5726</a></span></li>
+        <li><strong>LinkedIn</strong><span class="meta"><a href="https://www.linkedin.com/in/pedroevangelistasantos">linkedin.com/in/pedroevangelistasantos</a></span></li>
+      </ul>
     </section>
   </main>
 
-  <footer>Pedro Evangelista Santos · atualizado em novembro de 2026</footer>
+  <footer>Pedro Evangelista Santos · Uberlândia, MG</footer>
 </div>
 
 <script>
