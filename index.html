@@ -10,243 +10,356 @@
 <meta property="og:description" content="Automação e IA aplicada a negócios. Tech Lead e Product Owner do Nocker, app de finanças com IA e Open Finance na Play Store.">
 <meta property="og:url" content="https://peedrosantos.github.io/">
 <meta property="og:locale" content="pt_BR">
-<meta name="theme-color" content="#f3f4f1" media="(prefers-color-scheme: light)">
-<meta name="theme-color" content="#16181a" media="(prefers-color-scheme: dark)">
+<meta name="theme-color" content="#f4f5f7" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0f1216" media="(prefers-color-scheme: dark)">
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600&family=Public+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <style>
+  /* Pre-emit critique: P4 H5 E4 S5 R5 V4 */
   :root {
-    --paper: oklch(96.5% 0.004 120);
-    --paper-2: oklch(99% 0.002 120);
-    --ink: oklch(22% 0.01 250);
-    --ink-2: oklch(42% 0.012 250);
-    --ink-3: oklch(55% 0.01 250);
-    --rule: oklch(86% 0.006 250);
-    --accent: oklch(45% 0.13 255);
-    --accent-ink: oklch(98% 0.004 250);
+    --bg: oklch(97% 0.004 250);
+    --surface: oklch(99.5% 0.002 250);
+    --ink: oklch(21% 0.02 255);
+    --ink-2: oklch(42% 0.018 255);
+    --ink-3: oklch(54% 0.014 255);
+    --rule: oklch(89% 0.008 255);
+    --accent: oklch(47% 0.15 258);
+    --accent-soft: oklch(94% 0.03 258);
+    --on-accent: oklch(98% 0.005 255);
+    --band: oklch(20% 0.02 220);
+    --band-ink: oklch(95% 0.01 200);
+    --band-ink-2: oklch(76% 0.02 200);
+    --mint: oklch(86% 0.19 152);
+    --on-mint: oklch(22% 0.06 155);
 
-    --font-display: "Newsreader", Georgia, "Times New Roman", serif;
-    --font-body: "Public Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-display: "Bricolage Grotesque", "Segoe UI", system-ui, sans-serif;
+    --font-body: "IBM Plex Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+    --font-mono: "IBM Plex Mono", ui-monospace, "Cascadia Mono", Consolas, monospace;
 
-    --text-s: 0.875rem;
-    --text-0: 1rem;
-    --text-1: 1.125rem;
-    --text-2: 1.5rem;
-    --text-3: clamp(2.2rem, 6vw, 3.4rem);
-
-    --space-xs: 0.25rem; --space-sm: 0.5rem; --space-md: 1rem;
-    --space-lg: 1.5rem; --space-xl: 2.5rem; --space-2xl: 4rem;
-    --measure: 42rem;
+    --t-s: 0.875rem; --t-0: 1rem; --t-1: 1.125rem; --t-2: 1.5rem;
+    --t-3: clamp(2.6rem, 7vw, 4.4rem);
+    --radius: 10px;
+    --wide: 68rem;
   }
   @media (prefers-color-scheme: dark) {
     :root:not([data-theme="light"]) {
-      --paper: oklch(19% 0.006 250);
-      --paper-2: oklch(23% 0.008 250);
-      --ink: oklch(93% 0.006 250);
-      --ink-2: oklch(76% 0.008 250);
-      --ink-3: oklch(64% 0.008 250);
-      --rule: oklch(32% 0.008 250);
-      --accent: oklch(76% 0.11 255);
-      --accent-ink: oklch(19% 0.006 250);
+      --bg: oklch(17% 0.012 255);
+      --surface: oklch(21% 0.014 255);
+      --ink: oklch(94% 0.006 255);
+      --ink-2: oklch(77% 0.01 255);
+      --ink-3: oklch(64% 0.01 255);
+      --rule: oklch(30% 0.012 255);
+      --accent: oklch(76% 0.12 258);
+      --accent-soft: oklch(28% 0.05 258);
+      --on-accent: oklch(17% 0.012 255);
+      --band: oklch(23% 0.025 200);
     }
   }
   :root[data-theme="dark"] {
-    --paper: oklch(19% 0.006 250);
-    --paper-2: oklch(23% 0.008 250);
-    --ink: oklch(93% 0.006 250);
-    --ink-2: oklch(76% 0.008 250);
-    --ink-3: oklch(64% 0.008 250);
-    --rule: oklch(32% 0.008 250);
-    --accent: oklch(76% 0.11 255);
-    --accent-ink: oklch(19% 0.006 250);
+    --bg: oklch(17% 0.012 255);
+    --surface: oklch(21% 0.014 255);
+    --ink: oklch(94% 0.006 255);
+    --ink-2: oklch(77% 0.01 255);
+    --ink-3: oklch(64% 0.01 255);
+    --rule: oklch(30% 0.012 255);
+    --accent: oklch(76% 0.12 258);
+    --accent-soft: oklch(28% 0.05 258);
+    --on-accent: oklch(17% 0.012 255);
+    --band: oklch(23% 0.025 200);
   }
 
   * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
   html, body { overflow-x: clip; }
   body {
-    margin: 0; background: var(--paper); color: var(--ink);
-    font-family: var(--font-body); font-size: var(--text-0); line-height: 1.65;
+    margin: 0; background: var(--bg); color: var(--ink);
+    font-family: var(--font-body); font-size: var(--t-0); line-height: 1.6;
     -webkit-font-smoothing: antialiased;
   }
   a { color: var(--accent); text-underline-offset: 3px; text-decoration-thickness: 1px; }
   a:hover { text-decoration-thickness: 2px; }
-  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
-  ::selection { background: var(--accent); color: var(--accent-ink); }
+  :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+  ::selection { background: var(--accent); color: var(--on-accent); }
 
-  .page { max-width: var(--measure); margin: 0 auto; padding: var(--space-xl) var(--space-md) var(--space-2xl); }
+  .wrap { max-width: var(--wide); margin: 0 auto; padding: 0 1rem; }
+  @media (min-width: 720px) { .wrap { padding: 0 2rem; } }
 
-  .top { display: flex; justify-content: space-between; align-items: baseline; gap: var(--space-md); font-size: var(--text-s); color: var(--ink-3); margin-bottom: var(--space-2xl); }
-  .top nav { display: flex; gap: var(--space-md); flex-wrap: wrap; }
-  .top a { color: var(--ink-2); text-decoration: none; white-space: nowrap; }
-  .top a:hover { color: var(--ink); text-decoration: underline; }
-  .theme { font: inherit; color: var(--ink-2); background: none; border: 0; padding: 0; cursor: pointer; white-space: nowrap; }
-  .theme:hover { color: var(--ink); text-decoration: underline; }
+  .label { font-family: var(--font-mono); font-size: 0.78rem; letter-spacing: 0.04em; text-transform: uppercase; color: var(--ink-3); }
 
-  h1, h2, h3 { font-family: var(--font-display); font-weight: 600; font-style: normal; color: var(--ink); text-wrap: balance; }
-  h1 { font-size: var(--text-3); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 var(--space-sm); overflow-wrap: anywhere; min-width: 0; }
-  .role { font-size: var(--text-1); color: var(--ink-2); margin: 0 0 var(--space-lg); }
-  .intro p { margin: 0 0 var(--space-md); }
-  .cta { margin: var(--space-lg) 0 0; }
-  .cv { display: inline-block; padding: var(--space-sm) var(--space-md); background: var(--accent); color: var(--accent-ink); border-radius: 6px; font-weight: 600; font-size: var(--text-s); text-decoration: none; white-space: nowrap; }
-  .cv:hover { text-decoration: none; filter: brightness(1.08); }
-  .links { display: flex; flex-wrap: wrap; gap: var(--space-sm) var(--space-lg); margin: var(--space-lg) 0 0; padding: 0; list-style: none; font-size: var(--text-s); }
-  .links a { white-space: nowrap; }
+  /* Barra */
+  .bar { position: sticky; top: 0; z-index: 5; background: color-mix(in oklch, var(--bg) 88%, transparent); backdrop-filter: blur(8px); border-bottom: 1px solid var(--rule); }
+  .bar .wrap { display: flex; align-items: center; justify-content: space-between; gap: 1rem; min-height: 3.5rem; }
+  .brand { font-family: var(--font-mono); font-size: var(--t-s); color: var(--ink); text-decoration: none; white-space: nowrap; }
+  .bar nav { display: flex; align-items: center; gap: 1.25rem; font-size: var(--t-s); }
+  .bar nav a { color: var(--ink-2); text-decoration: none; white-space: nowrap; }
+  .bar nav a:hover { color: var(--ink); }
+  .theme { font: inherit; font-size: var(--t-s); color: var(--ink-2); background: none; border: 1px solid var(--rule); border-radius: 999px; padding: 0.2rem 0.7rem; cursor: pointer; white-space: nowrap; }
+  .theme:hover { color: var(--ink); border-color: var(--ink-3); }
+  @media (max-width: 720px) { .bar nav a:not(.keep) { display: none; } }
 
-  .highlight { margin-top: var(--space-xl); padding: var(--space-lg); background: var(--paper-2); border: 1px solid var(--rule); border-radius: 6px; }
-  .highlight h2 { border: 0; padding: 0; margin: 0 0 var(--space-xs); }
-  .highlight .sub { font-size: var(--text-s); color: var(--ink-2); margin: 0 0 var(--space-md); }
-  .highlight p { margin: 0 0 var(--space-md); }
-  .highlight p:last-child { margin-bottom: 0; }
-  .store { font-weight: 600; white-space: nowrap; }
+  /* Abertura */
+  .hero { padding: 4.5rem 0 3rem; }
+  .status { display: inline-flex; align-items: center; gap: 0.5rem; margin-bottom: 1.5rem; }
+  .status::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); }
+  h1 { font-family: var(--font-display); font-weight: 700; font-size: var(--t-3); line-height: 1; letter-spacing: -0.025em; margin: 0; text-wrap: balance; overflow-wrap: anywhere; min-width: 0; }
+  .role { font-family: var(--font-display); font-weight: 600; font-size: clamp(1.15rem, 2.4vw, 1.5rem); color: var(--ink-2); margin: 0.9rem 0 1.5rem; text-wrap: balance; }
+  .lede { max-width: 44rem; color: var(--ink-2); font-size: var(--t-1); margin: 0; }
+  .actions { display: flex; flex-wrap: wrap; gap: 0.75rem; margin-top: 2rem; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.7rem 1.1rem; border-radius: var(--radius); font-weight: 600; font-size: var(--t-s); text-decoration: none; white-space: nowrap; border: 1px solid transparent; transition: transform 150ms ease, background-color 150ms ease, border-color 150ms ease; }
+  .btn:hover { text-decoration: none; transform: translateY(-1px); }
+  .btn:active { transform: translateY(0); }
+  .btn.primary { background: var(--accent); color: var(--on-accent); }
+  .btn.ghost { color: var(--ink); border-color: var(--rule); background: var(--surface); }
+  .btn.ghost:hover { border-color: var(--ink-3); }
+  .btn svg { width: 16px; height: 16px; }
 
-  section { margin-top: var(--space-2xl); }
-  h2 { font-size: var(--text-2); line-height: 1.2; margin: 0 0 var(--space-lg); padding-bottom: var(--space-sm); border-bottom: 1px solid var(--rule); }
+  /* Frentes */
+  .fronts { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--rule); border-bottom: 1px solid var(--rule); }
+  .front { padding: 1.6rem 1.5rem 1.6rem 0; }
+  .front + .front { padding-left: 1.5rem; border-left: 1px solid var(--rule); }
+  .front h2 { font-family: var(--font-display); font-weight: 600; font-size: 1.2rem; margin: 0.35rem 0 0.4rem; }
+  .front p { margin: 0; color: var(--ink-2); font-size: 0.95rem; }
+  @media (max-width: 760px) {
+    .fronts { grid-template-columns: minmax(0, 1fr); }
+    .front, .front + .front { padding: 1.25rem 0; border-left: 0; }
+    .front + .front { border-top: 1px solid var(--rule); }
+  }
 
-  .job + .job { margin-top: var(--space-xl); }
-  .job-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: baseline; gap: 0 var(--space-md); }
-  h3 { font-size: 1.25rem; line-height: 1.3; margin: 0; }
-  .when { font-size: var(--text-s); color: var(--ink-3); font-variant-numeric: tabular-nums; white-space: nowrap; }
-  .where { font-size: var(--text-s); color: var(--ink-2); margin: 2px 0 var(--space-md); }
-  .job p { margin: 0 0 var(--space-md); }
+  section { padding-top: 4.5rem; }
+  .sec-head { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; align-items: baseline; margin-bottom: 1.75rem; }
+  .sec-head h2 { font-family: var(--font-display); font-weight: 700; font-size: var(--t-2); letter-spacing: -0.01em; margin: 0; grid-column: 2; }
+  .sec-head .label { grid-column: 1; grid-row: 1; }
+  @media (max-width: 760px) { .sec-head { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; } .sec-head h2, .sec-head .label { grid-column: 1; grid-row: auto; } }
+
+  /* Nocker */
+  .nocker { background: var(--band); color: var(--band-ink); border-radius: calc(var(--radius) + 6px); padding: clamp(1.5rem, 4vw, 2.75rem); display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr); gap: 2rem; position: relative; overflow: hidden; }
+  .nocker::after { content: ""; position: absolute; right: -6rem; bottom: -8rem; width: 22rem; height: 22rem; border-radius: 50%; background: radial-gradient(circle, color-mix(in oklch, var(--mint) 35%, transparent), transparent 70%); pointer-events: none; }
+  .nocker .label { color: var(--band-ink-2); }
+  .nocker h3 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4vw, 2.5rem); letter-spacing: -0.02em; line-height: 1.08; text-wrap: balance; margin: 0.5rem 0 0.9rem; }
+  .nocker p { color: var(--band-ink-2); margin: 0 0 1rem; max-width: 36rem; }
+  .nocker .btn.mint { background: var(--mint); color: var(--on-mint); }
+  .facts { list-style: none; margin: 0; padding: 0; align-self: end; position: relative; z-index: 1; }
+  .facts li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.7rem 0; border-top: 1px solid color-mix(in oklch, var(--band-ink) 18%, transparent); font-size: 0.92rem; }
+  .facts li span:first-child { font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; color: var(--band-ink-2); }
+  .facts li span:last-child { text-align: right; }
+  @media (max-width: 760px) { .nocker { grid-template-columns: minmax(0, 1fr); } }
+
+  /* Experiência */
+  .job { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; padding: 1.75rem 0; border-top: 1px solid var(--rule); }
+  .job:last-child { border-bottom: 1px solid var(--rule); }
+  .when { font-family: var(--font-mono); font-size: 0.85rem; color: var(--ink-3); font-variant-numeric: tabular-nums; }
+  .when small { display: block; font-size: 0.78rem; margin-top: 0.2rem; }
+  .job h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.3rem; margin: 0; }
+  .where { color: var(--ink-2); font-size: var(--t-s); margin: 0.15rem 0 0.9rem; }
+  .job p { margin: 0 0 0.75rem; }
   ul.points { margin: 0; padding-left: 1.1rem; }
-  ul.points li { margin-bottom: var(--space-sm); }
-  ul.points li::marker { color: var(--ink-3); }
-  .stack { font-size: var(--text-s); color: var(--ink-3); margin: var(--space-md) 0 0; }
+  ul.points li { margin-bottom: 0.45rem; }
+  ul.points li::marker { color: var(--accent); }
+  .tags { display: flex; flex-wrap: wrap; gap: 0.4rem; margin: 1rem 0 0; padding: 0; list-style: none; }
+  .tags li { font-family: var(--font-mono); font-size: 0.75rem; padding: 0.2rem 0.55rem; border-radius: 999px; background: var(--accent-soft); color: var(--ink); }
+  @media (max-width: 760px) { .job { grid-template-columns: minmax(0, 1fr); gap: 0.5rem; } }
 
-  .plain { margin: 0; padding: 0; list-style: none; }
-  .plain li { padding: var(--space-md) 0; border-top: 1px solid var(--rule); }
-  .plain li:first-child { border-top: 0; padding-top: 0; }
+  /* Habilidades */
+  .skills { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; }
+  .skill { background: var(--surface); border: 1px solid var(--rule); border-radius: var(--radius); padding: 1.25rem; }
+  .skill h3 { font-family: var(--font-display); font-weight: 600; font-size: 1.05rem; margin: 0 0 0.4rem; }
+  .skill p { margin: 0; color: var(--ink-2); font-size: 0.95rem; }
+  @media (max-width: 760px) { .skills { grid-template-columns: minmax(0, 1fr); } }
+
+  /* Formação */
+  .plain { list-style: none; margin: 0; padding: 0; }
+  .plain li { display: grid; grid-template-columns: 12rem minmax(0, 1fr); gap: 2rem; padding: 1rem 0; border-top: 1px solid var(--rule); }
+  .plain li:last-child { border-bottom: 1px solid var(--rule); }
   .plain strong { font-weight: 600; }
-  .plain .meta { display: block; font-size: var(--text-s); color: var(--ink-3); }
+  .plain .meta { display: block; color: var(--ink-2); font-size: var(--t-s); }
+  @media (max-width: 760px) { .plain li { grid-template-columns: minmax(0, 1fr); gap: 0.25rem; } }
 
-  dl.skills { margin: 0; display: grid; gap: var(--space-md); }
-  dl.skills dt { font-weight: 600; }
-  dl.skills dd { margin: 0; color: var(--ink-2); }
+  /* Contato */
+  .contact { margin-top: 4.5rem; padding: clamp(1.75rem, 5vw, 3rem) 0; border-top: 1px solid var(--rule); display: grid; grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr); gap: 2rem; align-items: end; }
+  .contact h2 { font-family: var(--font-display); font-weight: 700; font-size: clamp(1.8rem, 4.5vw, 2.8rem); letter-spacing: -0.02em; line-height: 1.05; margin: 0.4rem 0 0; text-wrap: balance; }
+  .contact ul { list-style: none; margin: 0; padding: 0; }
+  .contact li { display: flex; justify-content: space-between; gap: 1rem; padding: 0.6rem 0; border-top: 1px solid var(--rule); font-size: 0.95rem; }
+  .contact li span { color: var(--ink-3); font-family: var(--font-mono); font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.04em; }
+  .contact li a { text-align: right; overflow-wrap: anywhere; min-width: 0; }
+  @media (max-width: 760px) { .contact { grid-template-columns: minmax(0, 1fr); } }
 
-  footer { margin-top: var(--space-2xl); padding-top: var(--space-md); border-top: 1px solid var(--rule); font-size: var(--text-s); color: var(--ink-3); }
+  footer { padding: 1.5rem 0 2.5rem; color: var(--ink-3); font-size: var(--t-s); display: flex; justify-content: space-between; gap: 1rem; flex-wrap: wrap; }
 
-  @media (max-width: 480px) {
-    .top { flex-direction: column; gap: var(--space-sm); margin-bottom: var(--space-xl); }
-    .highlight { padding: var(--space-md); }
+  @media (prefers-reduced-motion: no-preference) {
+    .rise { opacity: 0; transform: translateY(10px); animation: rise 600ms cubic-bezier(.2,.7,.2,1) forwards; }
+    .rise:nth-child(2) { animation-delay: 70ms; }
+    .rise:nth-child(3) { animation-delay: 140ms; }
+    .rise:nth-child(4) { animation-delay: 210ms; }
+    .rise:nth-child(5) { animation-delay: 280ms; }
+    @keyframes rise { to { opacity: 1; transform: none; } }
   }
   @media print {
-    .top nav, .theme { display: none; }
+    .bar, .actions, .theme { display: none; }
     body { background: #fff; color: #000; }
+    .nocker { background: #fff; color: #000; border: 1px solid #ccc; }
   }
 </style>
 </head>
 <body>
-<div class="page">
 
-  <header class="top">
-    <span>Uberlândia, MG</span>
+<header class="bar">
+  <div class="wrap">
+    <a class="brand" href="#topo">pedro.evangelista</a>
     <nav aria-label="Seções">
       <a href="#nocker">Nocker</a>
       <a href="#experiencia">Experiência</a>
-      <a href="#contato">Contato</a>
-      <a href="curriculo-pedro-evangelista-santos.pdf" download>Currículo</a>
+      <a href="#habilidades">Habilidades</a>
+      <a href="#contato" class="keep">Contato</a>
       <button class="theme" id="theme" type="button">Tema</button>
     </nav>
-  </header>
+  </div>
+</header>
 
-  <main>
-    <div class="intro">
-      <h1>Pedro Evangelista Santos</h1>
-      <p class="role">Automação e IA aplicada a negócios · Tech Lead e Product Owner</p>
-      <p>Estudante de Sistemas de Informação (6º período, Uniube) e estagiário no Bradesco Empresas, com atuação junto aos gerentes de contas e gerentes assistentes no apoio às demandas das carteiras PJ e no acompanhamento das metas da agência. Liderança de tecnologia e produto do Nocker, aplicativo de finanças pessoais com IA e Open Finance publicado na Play Store. Foco em automação e IA aplicada a negócios: substituição de processos manuais por ferramentas construídas com Microsoft Copilot e uso de Claude Code, ChatGPT e Gemini no desenvolvimento de soluções.</p>
-      <p class="cta"><a class="cv" href="curriculo-pedro-evangelista-santos.pdf" download>Baixar currículo (PDF)</a></p>
-      <ul class="links">
-        <li><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></li>
-        <li><a href="https://www.linkedin.com/in/pedroevangelistasantos">LinkedIn</a></li>
-        <li><a href="https://github.com/PeedroSantos">GitHub</a></li>
-      </ul>
+<main id="topo">
+  <div class="wrap">
+
+    <div class="hero">
+      <p class="label status rise">Uberlândia, MG · Bradesco Empresas e Nocker</p>
+      <h1 class="rise">Pedro Evangelista Santos</h1>
+      <p class="role rise">Automação e IA aplicada a negócios · Tech Lead e Product Owner</p>
+      <p class="lede rise">Estudante de Sistemas de Informação (6º período, Uniube) e estagiário no Bradesco Empresas, com atuação junto aos gerentes de contas e gerentes assistentes no apoio às demandas das carteiras PJ e no acompanhamento das metas da agência. Liderança de tecnologia e produto do Nocker, aplicativo de finanças pessoais com IA e Open Finance publicado na Play Store.</p>
+      <div class="actions rise">
+        <a class="btn primary" href="curriculo-pedro-evangelista-santos.pdf" download>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M5 21h14"/></svg>
+          Baixar currículo
+        </a>
+        <a class="btn ghost" href="https://www.linkedin.com/in/pedroevangelistasantos">LinkedIn</a>
+        <a class="btn ghost" href="https://github.com/PeedroSantos">GitHub</a>
+      </div>
     </div>
 
-    <aside class="highlight" id="nocker">
-      <h2>Nocker</h2>
-      <p class="sub">Aplicativo de finanças pessoais com IA e Open Finance · Tech Lead e Product Owner</p>
-      <p>Publicado na Play Store, com assinatura pela Google Play, Open Finance real via Pluggy e a NIA, assistente financeira integrada ao backend pelo SDK da Anthropic.</p>
-      <p><a class="store" href="https://play.google.com/store/apps/details?id=com.nocker.app">Ver o Nocker na Play Store</a></p>
-    </aside>
+    <div class="fronts">
+      <div class="front">
+        <span class="label">Negócio</span>
+        <h2>Operação comercial PJ</h2>
+        <p>Apoio a gerentes de contas e gerentes assistentes, com metas, demandas e agenda da agência automatizadas.</p>
+      </div>
+      <div class="front">
+        <span class="label">Produto</span>
+        <h2>IA aplicada</h2>
+        <p>Assistente financeira, agentes de desenvolvimento e automação de processos com LLMs.</p>
+      </div>
+      <div class="front">
+        <span class="label">Infraestrutura</span>
+        <h2>Do código ao ar</h2>
+        <p>Docker, CI/CD, builds mobile, monitoramento e práticas de LGPD no produto.</p>
+      </div>
+    </div>
+
+    <section id="nocker">
+      <div class="sec-head"><span class="label">Projeto em destaque</span><h2>Nocker</h2></div>
+      <div class="nocker">
+        <div>
+          <span class="label">App de finanças pessoais · Tech Lead e Product Owner</span>
+          <h3>Finanças com IA e Open Finance</h3>
+          <p>Publicado na Play Store, com assinatura pela Google Play, Open Finance real via Pluggy e a NIA, assistente financeira integrada ao backend pelo SDK da Anthropic.</p>
+          <a class="btn mint" href="https://play.google.com/store/apps/details?id=com.nocker.app">Ver na Play Store</a>
+        </div>
+        <ul class="facts">
+          <li><span>Time</span><span>3 desenvolvedores</span></li>
+          <li><span>Plataformas</span><span>Android · iOS em breve</span></li>
+          <li><span>Dados</span><span>Open Finance via Pluggy</span></li>
+          <li><span>IA</span><span>NIA · SDK da Anthropic</span></li>
+        </ul>
+      </div>
+    </section>
 
     <section id="experiencia">
-      <h2>Experiência</h2>
+      <div class="sec-head"><span class="label">Trajetória</span><h2>Experiência</h2></div>
 
       <article class="job">
-        <div class="job-head"><h3>Bradesco Empresas</h3><span class="when">05/2025 – atual</span></div>
-        <p class="where">Estagiário · Agência 1258 · Uberlândia</p>
-        <p>Atuação junto aos gerentes de contas e gerentes assistentes, com apoio nas demandas das carteiras PJ, na gestão de metas e na operação comercial da agência. Construção e automação de planilhas no Excel (fórmulas e funções) usando o Microsoft Copilot, a partir das necessidades levantadas pela gerência.</p>
-        <ul class="points">
-          <li>Apoio aos gerentes de contas e gerentes assistentes nas demandas das carteiras, com organização das solicitações e acompanhamento das pendências até a conclusão.</li>
-          <li>Substituição do quadro físico de visitas a clientes por uma agenda automatizada em Excel, com uma aba por gerente. Agendas de especialistas presenciais e da matriz (online) preenchidas a partir dos lançamentos dos gerentes, evitando conflitos de horário e consolidando a quantidade de visitas por dia, semana e mês.</li>
-          <li>Criação de um controle de demandas dos assistentes que classifica solicitações por origem (gerentes, clientes via chat corporativo ou tarefas recorrentes) e consolida informações por semana, mês e gerente para acompanhamento da gerência geral.</li>
-          <li>Estruturação do acompanhamento das metas da agência: planilhas individuais para carteiras PF e PJ e uma central que consolida metas e produção, com resultados por segmento e ranking por indicador, no lugar das anotações diárias manuais.</li>
-        </ul>
+        <div class="when">05/2025 – atual<small>Uberlândia</small></div>
+        <div>
+          <h3>Bradesco Empresas</h3>
+          <p class="where">Estagiário · Agência 1258</p>
+          <p>Atuação junto aos gerentes de contas e gerentes assistentes, com apoio nas demandas das carteiras PJ, na gestão de metas e na operação comercial da agência. Construção e automação de planilhas no Excel (fórmulas e funções) usando o Microsoft Copilot, a partir das necessidades levantadas pela gerência.</p>
+          <ul class="points">
+            <li>Apoio aos gerentes de contas e gerentes assistentes nas demandas das carteiras, com organização das solicitações e acompanhamento das pendências até a conclusão.</li>
+            <li>Estruturação do acompanhamento das metas da agência: planilhas individuais para carteiras PF e PJ e uma central que consolida metas e produção, com resultados por segmento e ranking por indicador, no lugar das anotações diárias manuais.</li>
+            <li>Criação de um controle de demandas dos assistentes que classifica solicitações por origem (gerentes, clientes via chat corporativo ou tarefas recorrentes) e consolida informações por semana, mês e gerente para acompanhamento da gerência geral.</li>
+            <li>Substituição do quadro físico de visitas a clientes por uma agenda automatizada em Excel, com uma aba por gerente. Agendas de especialistas presenciais e da matriz (online) preenchidas a partir dos lançamentos dos gerentes, evitando conflitos de horário e consolidando a quantidade de visitas por dia, semana e mês.</li>
+          </ul>
+          <ul class="tags"><li>Carteiras PJ</li><li>Gestão de metas</li><li>Excel</li><li>Microsoft Copilot</li></ul>
+        </div>
       </article>
 
       <article class="job">
-        <div class="job-head"><h3>Venturi Holding</h3><span class="when">08/2026 – atual</span></div>
-        <p class="where">Diretor de Projetos e Sócio de Projetos · Nocker, Tech Lead e Product Owner · Remoto</p>
-        <ul class="points">
-          <li>Coordenação de um time de 3 desenvolvedores e definição de escopo, prioridades e planos com a fundadora.</li>
-          <li>Condução do aplicativo da base inicial à publicação na Play Store, com assinatura pela Google Play e Open Finance real via Pluggy.</li>
-          <li>IA no produto: desenvolvimento da NIA, assistente financeira integrada ao backend pelo SDK da Anthropic, com escopo delimitado à organização financeira e sem recomendações de investimento.</li>
-          <li>Implementação de leitura de notas fiscais com IA multimodal (visão), com OCR de reserva e consentimento específico do usuário para envio das imagens.</li>
-          <li>Desenvolvimento assistido por IA: Claude Code como principal ferramenta, com contexto estruturado por documentação de regras do projeto, ADRs e memória. Estruturação de um fluxo próprio de 7 agentes para planejamento, implementação, avaliação e revisão adversarial, integrados ao banco de dados via MCP somente leitura, GitHub e ClickUp.</li>
-          <li>DevOps: gestão da hospedagem do backend em Docker no Render, CI com verificação de tipos e testes a cada pull request, fluxo dev/prod com revisão antes do merge, builds Android e atualizações OTA pelo EAS e monitoramento de erros com Sentry.</li>
-          <li>Aplicação de práticas de LGPD no produto: consentimento, versionamento de Termos, exclusão de conta e proteção de dados sensíveis contra acesso dos modelos de IA.</li>
-          <li>Nocker Business: participação no desenvolvimento da versão web para empresas, com gestão por setores, aprovações e orçamentos (em desenvolvimento).</li>
-        </ul>
-        <p class="stack">Stack: React Native, Expo, TypeScript, Python/FastAPI, Supabase (Postgres), Kotlin.</p>
+        <div class="when">08/2026 – atual<small>Remoto</small></div>
+        <div>
+          <h3>Venturi Holding</h3>
+          <p class="where">Diretor de Projetos e Sócio de Projetos · Nocker, Tech Lead e Product Owner</p>
+          <ul class="points">
+            <li>Coordenação de um time de 3 desenvolvedores e definição de escopo, prioridades e planos com a fundadora.</li>
+            <li>Condução do aplicativo da base inicial à publicação na Play Store, com assinatura pela Google Play e Open Finance real via Pluggy.</li>
+            <li>IA no produto: desenvolvimento da NIA, assistente financeira integrada ao backend pelo SDK da Anthropic, com escopo delimitado à organização financeira e sem recomendações de investimento.</li>
+            <li>Implementação de leitura de notas fiscais com IA multimodal (visão), com OCR de reserva e consentimento específico do usuário para envio das imagens.</li>
+            <li>Desenvolvimento assistido por IA: Claude Code como principal ferramenta, com contexto estruturado por documentação de regras do projeto, ADRs e memória. Estruturação de um fluxo próprio de 7 agentes para planejamento, implementação, avaliação e revisão adversarial, integrados ao banco de dados via MCP somente leitura, GitHub e ClickUp.</li>
+            <li>DevOps: gestão da hospedagem do backend em Docker no Render, CI com verificação de tipos e testes a cada pull request, fluxo dev/prod com revisão antes do merge, builds Android e atualizações OTA pelo EAS e monitoramento de erros com Sentry.</li>
+            <li>Aplicação de práticas de LGPD no produto: consentimento, versionamento de Termos, exclusão de conta e proteção de dados sensíveis contra acesso dos modelos de IA.</li>
+            <li>Nocker Business: participação no desenvolvimento da versão web para empresas, com gestão por setores, aprovações e orçamentos (em desenvolvimento).</li>
+          </ul>
+          <ul class="tags"><li>React Native</li><li>Expo</li><li>TypeScript</li><li>Python/FastAPI</li><li>Supabase (Postgres)</li><li>Kotlin</li></ul>
+        </div>
       </article>
 
       <article class="job">
-        <div class="job-head"><h3>Landix Sistemas</h3><span class="when">03/2024 – 05/2025</span></div>
-        <p class="where">Estagiário de DevOps e Infraestrutura · Remoto</p>
-        <ul class="points">
-          <li>Manutenção de infraestrutura de aplicações em nuvem e automação de provisionamento com Terraform.</li>
-          <li>Apoio à manutenção de pipelines de CI/CD.</li>
-          <li>Suporte técnico e de infraestrutura aos colaboradores.</li>
-        </ul>
+        <div class="when">03/2024 – 05/2025<small>Remoto</small></div>
+        <div>
+          <h3>Landix Sistemas</h3>
+          <p class="where">Estagiário de DevOps e Infraestrutura</p>
+          <ul class="points">
+            <li>Manutenção de infraestrutura de aplicações em nuvem e automação de provisionamento com Terraform.</li>
+            <li>Apoio à manutenção de pipelines de CI/CD.</li>
+            <li>Suporte técnico e de infraestrutura aos colaboradores.</li>
+          </ul>
+          <ul class="tags"><li>Terraform</li><li>CI/CD</li><li>Cloud</li></ul>
+        </div>
       </article>
     </section>
 
     <section id="habilidades">
-      <h2>Habilidades</h2>
-      <dl class="skills">
-        <div><dt>Inteligência Artificial</dt><dd>Claude Code, ChatGPT, Gemini, Microsoft Copilot, integração de LLMs, IA multimodal, agentes e MCP, engenharia de prompts e contexto, automação de processos com IA.</dd></div>
-        <div><dt>Negócios e produtos</dt><dd>Product Ownership, liderança de equipes, gestão de metas e indicadores comerciais, levantamento de necessidades e Excel avançado.</dd></div>
-        <div><dt>Desenvolvimento</dt><dd>TypeScript, JavaScript, Python, Kotlin, Java, SQL, React, React Native, Expo, FastAPI, APIs REST e JWT/OAuth.</dd></div>
-        <div><dt>Dados e infraestrutura</dt><dd>PostgreSQL/Supabase, MongoDB, Docker, Terraform, GitHub Actions, CI/CD, AWS, Render e Linux.</dd></div>
-        <div><dt>Idiomas</dt><dd>Inglês técnico para leitura.</dd></div>
-      </dl>
+      <div class="sec-head"><span class="label">Ferramentas</span><h2>Habilidades</h2></div>
+      <div class="skills">
+        <div class="skill"><h3>Inteligência Artificial</h3><p>Claude Code, ChatGPT, Gemini, Microsoft Copilot, integração de LLMs, IA multimodal, agentes e MCP, engenharia de prompts e contexto, automação de processos com IA.</p></div>
+        <div class="skill"><h3>Negócios e produtos</h3><p>Product Ownership, liderança de equipes, gestão de metas e indicadores comerciais, apoio a carteiras PJ, levantamento de necessidades e Excel avançado.</p></div>
+        <div class="skill"><h3>Desenvolvimento</h3><p>TypeScript, JavaScript, Python, Kotlin, Java, SQL, React, React Native, Expo, FastAPI, APIs REST e JWT/OAuth.</p></div>
+        <div class="skill"><h3>Dados e infraestrutura</h3><p>PostgreSQL/Supabase, MongoDB, Docker, Terraform, GitHub Actions, CI/CD, AWS, Render e Linux. Inglês técnico para leitura.</p></div>
+      </div>
     </section>
 
     <section id="formacao">
-      <h2>Formação e certificações</h2>
+      <div class="sec-head"><span class="label">Estudo</span><h2>Formação e certificações</h2></div>
       <ul class="plain">
-        <li><strong>Bacharelado em Sistemas de Informação</strong>, Universidade de Uberaba (Uniube)<span class="meta">6º período · previsão de conclusão: dezembro de 2027</span></li>
-        <li><strong>Técnico em Redes de Computadores</strong>, Instituto Federal do Triângulo Mineiro (IFTM)<span class="meta">2022</span></li>
-        <li><strong>CEA</strong>, Certificação ANBIMA de Especialistas em Investimento<span class="meta">07/2025 – 07/2028</span></li>
-        <li><strong>Cursos</strong><span class="meta">AWS na Prática (Udemy, 38,5h) · Bootcamp Orange Tech+ Back End (DIO, 87h)</span></li>
+        <li><span class="when">Previsão 12/2027</span><div><strong>Bacharelado em Sistemas de Informação</strong><span class="meta">Universidade de Uberaba (Uniube) · 6º período</span></div></li>
+        <li><span class="when">07/2025 – 07/2028</span><div><strong>CEA</strong><span class="meta">Certificação ANBIMA de Especialistas em Investimento</span></div></li>
+        <li><span class="when">2022</span><div><strong>Técnico em Redes de Computadores</strong><span class="meta">Instituto Federal do Triângulo Mineiro (IFTM)</span></div></li>
+        <li><span class="when">Cursos</span><div><strong>AWS na Prática e Bootcamp Orange Tech+ Back End</strong><span class="meta">Udemy, 38,5h · DIO, 87h</span></div></li>
       </ul>
     </section>
 
-    <section id="contato">
-      <h2>Contato</h2>
-      <ul class="plain">
-        <li><strong>E-mail</strong><span class="meta"><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></span></li>
-        <li><strong>WhatsApp</strong><span class="meta"><a href="https://wa.me/5534998365726">(34) 9 9836-5726</a></span></li>
-        <li><strong>LinkedIn</strong><span class="meta"><a href="https://www.linkedin.com/in/pedroevangelistasantos">linkedin.com/in/pedroevangelistasantos</a></span></li>
-        <li><strong>Currículo</strong><span class="meta"><a href="curriculo-pedro-evangelista-santos.pdf" download>Baixar em PDF</a></span></li>
+    <div class="contact" id="contato">
+      <div>
+        <span class="label">Contato</span>
+        <h2>Vamos conversar.</h2>
+      </div>
+      <ul>
+        <li><span>E-mail</span><a href="mailto:pedro.evang.santos@gmail.com">pedro.evang.santos@gmail.com</a></li>
+        <li><span>WhatsApp</span><a href="https://wa.me/5534998365726">(34) 9 9836-5726</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/pedroevangelistasantos">pedroevangelistasantos</a></li>
+        <li><span>Currículo</span><a href="curriculo-pedro-evangelista-santos.pdf" download>Baixar em PDF</a></li>
       </ul>
-    </section>
-  </main>
+    </div>
 
-  <footer>Pedro Evangelista Santos · Uberlândia, MG</footer>
-</div>
+    <footer><span>Pedro Evangelista Santos</span><span>Uberlândia, MG</span></footer>
+  </div>
+</main>
 
 <script>
   (function () {
